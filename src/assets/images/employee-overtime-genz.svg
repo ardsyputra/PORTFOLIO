@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="24" stdDeviation="24" flood-opacity=".18"/></filter>
+  </defs>
+  <rect width="1200" height="800" rx="32" fill="#F4F1EA"/>
+  <rect x="38" y="38" width="1124" height="724" rx="28" fill="#fff" filter="url(#shadow)"/>
+  <rect x="38" y="38" width="224" height="724" rx="28" fill="#1E3A8A"/>
+  <circle cx="102" cy="102" r="32" fill="#F97316"/>
+  <text x="94" y="112" fill="#fff" font-family="Arial" font-weight="900" font-size="34">O</text>
+  <text x="145" y="108" fill="#fff" font-family="Arial" font-weight="900" font-size="22">OVERTIME</text>
+  <g font-family="Arial" font-size="18" font-weight="700">
+    <rect x="66" y="178" width="168" height="52" rx="16" fill="#fff" fill-opacity=".13"/>
+    <text x="91" y="211" fill="#fff">Dashboard</text>
+    <text x="91" y="280" fill="#B8C4E8">Pengajuan</text>
+    <text x="91" y="342" fill="#B8C4E8">Riwayat</text>
+    <text x="91" y="404" fill="#B8C4E8">Jadwal</text>
+    <text x="91" y="466" fill="#B8C4E8">Profil</text>
+  </g>
+  <text x="310" y="104" fill="#1B1B1B" font-family="Arial" font-weight="900" font-size="34">Good morning, Amanda 👋</text>
+  <text x="310" y="136" fill="#7A7A7A" font-family="Arial" font-size="16">Wednesday, 4 November 2026</text>
+  <circle cx="1088" cy="94" r="34" fill="#FFF0E8"/>
+  <text x="1074" y="104" fill="#F97316" font-family="Arial" font-weight="900" font-size="22">AM</text>
+  <rect x="310" y="178" width="260" height="150" rx="24" fill="#1E3A8A"/>
+  <text x="338" y="218" fill="#C8D2F0" font-family="Arial" font-size="16">Hours this month</text>
+  <text x="338" y="278" fill="#fff" font-family="Arial" font-weight="900" font-size="46">42.5</text>
+  <text x="338" y="305" fill="#C8D2F0" font-family="Arial" font-size="14">+8.2% from last month</text>
+  <rect x="590" y="178" width="250" height="150" rx="24" fill="#C8FF4A"/>
+  <text x="618" y="218" fill="#31520A" font-family="Arial" font-size="16">Pending approval</text>
+  <text x="618" y="278" fill="#171717" font-family="Arial" font-weight="900" font-size="46">03</text>
+  <rect x="860" y="178" width="252" height="150" rx="24" fill="#FFF0E8"/>
+  <text x="888" y="218" fill="#9A4B24" font-family="Arial" font-size="16">Approved</text>
+  <text x="888" y="278" fill="#171717" font-family="Arial" font-weight="900" font-size="46">12</text>
+  <rect x="310" y="358" width="802" height="354" rx="24" fill="#FAFAF8" stroke="#ECE9E2"/>
+  <text x="338" y="398" fill="#171717" font-family="Arial" font-weight="900" font-size="22">Recent overtime requests</text>
+  <rect x="338" y="430" width="746" height="58" rx="14" fill="#fff"/>
+  <text x="360" y="465" fill="#171717" font-family="Arial" font-weight="700" font-size="16">Website deployment</text>
+  <rect x="720" y="447" width="112" height="26" rx="13" fill="#FFF1D6"/>
+  <text x="743" y="465" fill="#A56B00" font-family="Arial" font-weight="700" font-size="13">PENDING</text>
+  <text x="860" y="465" fill="#666" font-family="Arial" font-size="14">3 hours</text>
+  <rect x="338" y="504" width="746" height="58" rx="14" fill="#fff"/>
+  <text x="360" y="539" fill="#171717" font-family="Arial" font-weight="700" font-size="16">Monthly report</text>
+  <rect x="720" y="521" width="112" height="26" rx="13" fill="#E6F7CF"/>
+  <text x="739" y="539" fill="#4C781C" font-family="Arial" font-weight="700" font-size="13">APPROVED</text>
+  <text x="860" y="539" fill="#666" font-family="Arial" font-size="14">2 hours</text>
+  <rect x="338" y="578" width="746" height="58" rx="14" fill="#fff"/>
+  <text x="360" y="613" fill="#171717" font-family="Arial" font-weight="700" font-size="16">Client migration</text>
+  <rect x="720" y="595" width="112" height="26" rx="13" fill="#FFE2E0"/>
+  <text x="746" y="613" fill="#A33B35" font-family="Arial" font-weight="700" font-size="13">REVISION</text>
+  <text x="860" y="613" fill="#666" font-family="Arial" font-size="14">4 hours</text>
+  <rect x="950" y="658" width="134" height="42" rx="21" fill="#F97316"/>
+  <text x="972" y="685" fill="#fff" font-family="Arial" font-weight="900" font-size="15">+ New request</text>
+</svg>

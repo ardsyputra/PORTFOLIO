@@ -1,5 +1,5 @@
 import texture from "../assets/images/texture.avif";
-import overtime from "../assets/images/website.png";
+import overtime from "../assets/images/employee-overtime-genz.svg";
 
 
 export default function Project3(){

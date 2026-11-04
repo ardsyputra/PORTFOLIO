@@ -1,5 +1,5 @@
 import texture from "../assets/images/texture.avif";
-import blockchain from "../assets/images/blockchain.png";
+import blockchain from "../assets/images/blockchain-shipment-genz.svg";
 
 
 export default function Project4(){

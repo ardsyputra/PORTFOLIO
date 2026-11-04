@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="24" stdDeviation="24" flood-opacity=".2"/></filter>
+  </defs>
+  <rect width="1200" height="800" rx="32" fill="#162B62"/>
+  <circle cx="1040" cy="100" r="170" fill="#F97316" fill-opacity=".18"/>
+  <circle cx="170" cy="720" r="210" fill="#C8FF4A" fill-opacity=".08"/>
+  <rect x="55" y="48" width="1090" height="704" rx="28" fill="#F7F4ED" filter="url(#shadow)"/>
+  <rect x="55" y="48" width="1090" height="84" rx="28" fill="#fff"/>
+  <circle cx="102" cy="90" r="26" fill="#2451A6"/>
+  <path d="M91 91h22M102 80v22M94 83l16 16M110 83l-16 16" stroke="#C8FF4A" stroke-width="5" stroke-linecap="round"/>
+  <text x="145" y="100" fill="#171717" font-family="Arial" font-weight="900" font-size="22">SHIPCHAIN</text>
+  <text x="885" y="98" fill="#2451A6" font-family="Arial" font-weight="700" font-size="15">VERIFY</text>
+  <text x="980" y="98" fill="#777" font-family="Arial" font-weight="700" font-size="15">SHIPMENTS</text>
+  <text x="112" y="190" fill="#2451A6" font-family="Arial" font-weight="900" font-size="38">Shipment integrity</text>
+  <text x="112" y="224" fill="#777" font-family="Arial" font-size="16">Trace every handoff. Verify every proof.</text>
+  <rect x="112" y="268" width="650" height="410" rx="24" fill="#fff"/>
+  <text x="142" y="310" fill="#777" font-family="Arial" font-weight="700" font-size="14">TRACKING NUMBER</text>
+  <rect x="142" y="328" width="590" height="58" rx="16" fill="#F1F4FA"/>
+  <text x="166" y="365" fill="#171717" font-family="Arial" font-weight="900" font-size="22">SC-2026-1104-AP</text>
+  <rect x="602" y="338" width="112" height="38" rx="19" fill="#2451A6"/>
+  <text x="628" y="363" fill="#fff" font-family="Arial" font-weight="900" font-size="14">VERIFY</text>
+  <rect x="142" y="414" width="590" height="92" rx="18" fill="#EAF6DE"/>
+  <circle cx="184" cy="460" r="26" fill="#C8FF4A"/>
+  <path d="M172 460l9 9 17-21" fill="none" stroke="#2451A6" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="226" y="451" fill="#31520A" font-family="Arial" font-weight="900" font-size="20">Shipment verified</text>
+  <text x="226" y="478" fill="#657B4A" font-family="Arial" font-size="14">SHA-256 proof matched on-chain</text>
+  <rect x="142" y="530" width="590" height="114" rx="18" fill="#F7F7F4"/>
+  <text x="166" y="558" fill="#777" font-family="Arial" font-weight="700" font-size="13">MERKLE ROOT</text>
+  <text x="166" y="586" fill="#171717" font-family="monospace" font-weight="700" font-size="15">8F2A...7C19  •  Block #48209</text>
+  <text x="166" y="618" fill="#777" font-family="Arial" font-size="13">Verified 04 Nov 2026 · 17:24 WIB</text>
+  <rect x="786" y="268" width="310" height="410" rx="24" fill="#2451A6"/>
+  <text x="816" y="310" fill="#B9C9EE" font-family="Arial" font-weight="700" font-size="14">LIVE JOURNEY</text>
+  <circle cx="844" cy="370" r="12" fill="#C8FF4A"/>
+  <line x1="844" y1="382" x2="844" y2="580" stroke="#8299CC" stroke-width="3"/>
+  <circle cx="844" cy="456" r="12" fill="#8299CC"/>
+  <circle cx="844" cy="542" r="12" fill="#8299CC"/>
+  <text x="874" y="366" fill="#fff" font-family="Arial" font-weight="900" font-size="16">In Transit</text>
+  <text x="874" y="388" fill="#C4CFEB" font-family="Arial" font-size="13">Jakarta Hub</text>
+  <text x="874" y="452" fill="#fff" font-family="Arial" font-weight="900" font-size="16">Verified</text>
+  <text x="874" y="474" fill="#C4CFEB" font-family="Arial" font-size="13">Surabaya · Node 04</text>
+  <text x="874" y="538" fill="#fff" font-family="Arial" font-weight="900" font-size="16">Created</text>
+  <text x="874" y="560" fill="#C4CFEB" font-family="Arial" font-size="13">Origin warehouse</text>
+  <rect x="816" y="616" width="250" height="40" rx="20" fill="#F97316"/>
+  <text x="866" y="642" fill="#fff" font-family="Arial" font-weight="900" font-size="14">OPEN FULL PROOF</text>
+</svg>
