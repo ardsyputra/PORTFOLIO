@@ -55,12 +55,14 @@ export default function App() {
               { src: "/assets/expense-tracker/settings.png", label: "Settings" },
             ],
             mobile: [
-              { src: "/assets/expense-tracker/whatsapp-image-2026-11-04-at-13-22-56.jpeg", label: "Login" },
-              { src: "/assets/expense-tracker/whatsapp-image-2026-11-04-at-13-22-56-1.jpeg", label: "Register" },
-              { src: "/assets/expense-tracker/whatsapp-image-2026-11-04-at-13-22-56-2.jpeg", label: "Dashboard" },
-              { src: "/assets/expense-tracker/whatsapp-image-2026-11-04-at-13-22-57.jpeg", label: "Transactions" },
-              { src: "/assets/expense-tracker/whatsapp-image-2026-11-04-at-13-22-57-1.jpeg", label: "Categories" },
-              { src: "/assets/expense-tracker/whatsapp-image-2026-11-04-at-13-22-57-2.jpeg", label: "Settings" },
+              { src: "/assets/expense-tracker/live-mobile-login.png", label: "Login" },
+              { src: "/assets/expense-tracker/live-mobile-register.png", label: "Register" },
+              { src: "/assets/expense-tracker/live-mobile-dashboard.png", label: "Dashboard" },
+              { src: "/assets/expense-tracker/live-mobile-transactions.png", label: "Transactions" },
+              { src: "/assets/expense-tracker/live-mobile-add-transaction.png", label: "Add Transaction" },
+              { src: "/assets/expense-tracker/live-mobile-categories.png", label: "Categories" },
+              { src: "/assets/expense-tracker/live-mobile-add-category.png", label: "Add Category" },
+              { src: "/assets/expense-tracker/live-mobile-settings.png", label: "Settings" },
             ],
           }}
           learnings={[
