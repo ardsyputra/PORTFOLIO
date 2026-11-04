@@ -93,7 +93,6 @@ role:"Blockchain Developer",
 platform:"Research Prototype",
 database:"CouchDB",
 language:"Python",
-duration:"Final Thesis Project"
 
 
 };
@@ -258,8 +257,10 @@ px-6
 
 className="
 grid
-lg:grid-cols-2
-gap-20
+grid-cols-1
+lg:grid-cols-[0.85fr_1.15fr]
+gap-10
+lg:gap-12
 items-center
 "
 
@@ -466,7 +467,6 @@ gap-6
 
 ["Language",project.language],
 
-["Duration",project.duration]
 
 ].map(item=>(
 
@@ -539,14 +539,12 @@ text-[#1E3A8A]
 
 <a
 
-href="https://github.com/ardiansyahputr4/Blockchain"
-
-target="_blank"
-
-rel="noopener noreferrer"
+href="https://github.com/ardsyputra/Blockchain"
 
 className="
 inline-flex
+relative
+z-10
 mt-10
 bg-[#F97316]
 text-white
@@ -587,6 +585,10 @@ View Repository →
 
 className="
 relative
+ w-[calc(100%+3rem)]
+ -mx-6
+ lg:mx-0
+ lg:w-auto
 flex
 justify-center
 items-center
@@ -604,6 +606,7 @@ items-center
 
 className="
 absolute
+pointer-events-none
 w-[650px]
 h-[650px]
 rounded-full
@@ -624,6 +627,7 @@ animate-[spinSlow_25s_linear_infinite]
 
 className="
 absolute
+pointer-events-none
 w-[300px]
 h-[300px]
 rounded-full
@@ -644,6 +648,7 @@ animate-[pulseGlow_4s_ease-in-out_infinite]
 
 className="
 absolute
+pointer-events-none
 w-[500px]
 h-[2px]
 bg-[#F7F4ED]/20
@@ -673,6 +678,8 @@ rounded-full
 shadow-2xl
 rotate-[-12deg]
 animate-[float_3s_ease-in-out_infinite]
+hidden
+sm:block
 z-30
 "
 
@@ -698,8 +705,10 @@ alt="Blockchain"
 className="
 relative
 z-20
-w-[900px]
+w-[calc(100vw-1rem)]
 max-w-none
+lg:w-full
+lg:max-w-[1200px]
 object-contain
 drop-shadow-[0_50px_100px_rgba(0,0,0,.55)]
 animate-[float_5s_ease-in-out_infinite]
@@ -732,6 +741,8 @@ py-6
 shadow-[0_30px_80px_rgba(0,0,0,.35)]
 rotate-[-8deg]
 animate-[float_4s_ease-in-out_infinite]
+hidden
+sm:block
 z-30
 "
 
@@ -779,6 +790,8 @@ py-5
 shadow-2xl
 rotate-6
 animate-[float_6s_ease-in-out_infinite]
+hidden
+sm:block
 z-30
 "
 

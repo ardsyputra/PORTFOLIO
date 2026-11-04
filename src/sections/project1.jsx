@@ -1,629 +1,122 @@
 import texture from "../assets/images/texture.avif";
-import campus from "../assets/images/campus.png";
+import { BarChart, Bar, ResponsiveContainer, XAxis, Tooltip } from "recharts";
 
 export default function Project1() {
   const project = {
-    title: "Sistem Informasi Kampus",
-    category: "UI/UX Case Study",
+    title: "Expense Tracker",
+    category: "Full Stack Finance Product",
     description:
-      "Merancang antarmuka Sistem Informasi Kampus yang modern dan responsif untuk membantu mahasiswa mengakses jadwal kuliah, KRS, KHS, pengumuman, serta informasi akademik dengan pengalaman pengguna yang sederhana dan efisien.",
-
-    role: "UI/UX Designer",
-    duration: "4 Weeks",
-    tools: "Figma",
-    platform: "Mobile Application",
-
-    tags: [
-      "UI/UX",
-      "Figma",
-      "Prototype",
-      "Responsive",
-    ],
+      "Aplikasi pencatatan keuangan dengan dashboard transaksi, kategori pengeluaran, autentikasi, pengaturan akun, dan REST API untuk membantu pengguna mengelola pendapatan serta pengeluaran.",
+    role: "Full Stack Developer",
+    tools: "React, TypeScript, Node.js, Gin, PostgreSQL",
+    platform: "Web Application",
+    tags: ["React", "TypeScript", "Node.js", "Gin", "PostgreSQL", "REST API"],
   };
-  
 
   return (
-    <section
-      id="project"
-      className="
-      relative
-      min-h-screen
-      bg-[#F7F4ED]
-      overflow-hidden
-      py-28
-      scroll-mt-24
-      "
-    >
+    <section id="project" className="relative min-h-screen overflow-hidden bg-[#F7F4ED] py-28">
+      <div className="absolute inset-0 opacity-[0.12]" style={{ backgroundImage: `url(${texture})`, backgroundSize: "260px", backgroundRepeat: "repeat" }} />
+      <div className="absolute -left-32 top-20 h-80 w-80 rounded-full bg-[#1E3A8A]/10 blur-3xl" />
+      <div className="absolute right-10 top-24 h-52 w-52 rounded-full border-[18px] border-[#1E3A8A]/10" />
 
-      {/* ================= Texture ================= */}
-
-<div
-  className="absolute inset-0 opacity-[0.12]"
-  style={{
-    backgroundImage: `url(${texture})`,
-    backgroundSize: "260px",
-    backgroundRepeat: "repeat",
-  }}
-/>
-
-{/* ================= Dot Pattern ================= */}
-
-<div
-  className="
-  absolute
-  top-32
-  right-24
-  w-44
-  h-44
-  opacity-20
-  "
-  style={{
-    backgroundImage:
-      "radial-gradient(circle,#1E3A8A 2px,transparent 2px)",
-    backgroundSize: "18px 18px",
-  }}
-/>
-<div
-  className="
-  absolute
-  bottom-20
-  left-16
-  w-20
-  h-20
-  border-4
-  border-[#1E3A8A]/20
-  rotate-12
-  rounded-xl
-  "
-/>
-
-{/* Decorative Blob */}
-
-<div className="absolute -left-32 top-20 w-80 h-80 rounded-full bg-[#1E3A8A]/10 blur-3xl" />
-
-<div className="absolute right-10 bottom-20 w-52 h-52 rounded-full border-[18px] border-[#1E3A8A]/10" />
-
-      {/* Decorative Blob */}
-
-      <div className="absolute -left-32 top-20 w-80 h-80 rounded-full bg-[#1E3A8A]/10 blur-3xl" />
-
-      <div className="absolute right-10 bottom-20 w-52 h-52 rounded-full border-[18px] border-[#1E3A8A]/10" />
-
-      {/* ================= Container ================= */}
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-
-        {/* Header */}
-        <div
-        className="
-        absolute
-        top-8
-        left-6
-        select-none
-        pointer-events-none
-        "
-        >
-        <h1
-            className="
-            text-[220px]
-            md:text-[280px]
-            font-black
-            leading-none
-            text-[#1E3A8A]/20
-            "
-        >
-            01
-        </h1>
-        </div>
-
-        <div className="mb-20">
-
-          <span
-            className="
-            inline-block
-            bg-[#1E3A8A]
-            text-[#F7F4ED]
-            px-5
-            py-2
-            rounded-full
-            text-sm
-            font-semibold
-            tracking-widest
-            "
-          >
-            FEATURED PROJECT
-          </span>
-
-          <h2
-            className="
-            mt-6
-            text-5xl
-            md:text-6xl
-            font-black
-            text-[#1E3A8A]
-            "
-          >
-            UI/UX Design
-          </h2>
-
-        </div>
-        <div
-        className="
-        inline-flex
-        items-center
-        gap-3
-
-        bg-[#1E3A8A]
-
-        px-5
-        py-3
-
-        rounded-full
-
-        shadow-lg
-
-        mb-8
-        "
-        >
-
-        <div
-            className="
-            w-3
-            h-3
-            rounded-full
-            bg-green-500
-            "
-        />
-
-        <span
-            className="
-            font-semibold
-            text-[#F7F4ED]
-            "
-        >
-            Case Study
-        </span>
-
-        </div>
-        {/* ================= GRID ================= */}
-
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
-
-          {/* ================= LEFT ================= */}
-
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
+        <div className="mb-16 flex items-end justify-between">
           <div>
+            <span className="inline-block rounded-full bg-[#1E3A8A] px-5 py-2 text-sm font-semibold tracking-widest text-[#F7F4ED]">FEATURED PROJECT</span>
+            <h2 className="mt-6 text-5xl font-black text-[#1E3A8A] md:text-6xl">01 / Expense Tracker</h2>
+          </div>
+        </div>
 
-            <p
-              className="
-              uppercase
-              tracking-[0.35em]
-              text-[#1E3A8A]/90
-              font-semibold
-              text-sm
-              "
-            >
-              {project.category}
-            </p>
-
-            <h1
-            className="
-            mt-6
-            text-6xl
-            md:text-7xl
-            font-black
-            leading-none
-            text-[#1E3A8A]
-            drop-shadow-[6px_6px_0px_rgba(30,58,138,0.18)]
-            "
-            >
-              Sistem
-              <br />
-              Informasi
-              <br />
-              Kampus
-            </h1>
-
-            {/* Badge */}
-
-            <div className="flex flex-wrap gap-3 mt-10">
-
+        <div className="grid items-center gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#1E3A8A]/70">{project.category}</p>
+            <h1 className="mt-6 text-6xl font-black leading-[0.88] text-[#1E3A8A] md:text-7xl">{project.title}</h1>
+            <div className="mt-8 flex flex-wrap gap-3">
               {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="
-                  px-5
-                  py-2
-                  rounded-full
-                  bg-[#1E3A8A]
-                  shadow-lg
-                  border
-                  border-[#1E3A8A]/10
-                  text-[#F7F4ED]
-                  font-semibold
-                  "
-                >
-                  {tag}
-                </span>
+                <span key={tag} className="rounded-full border border-[#1E3A8A]/10 bg-white px-4 py-2 text-sm font-bold text-[#1E3A8A] shadow-sm">{tag}</span>
               ))}
+            </div>
+            <p className="mt-8 max-w-xl text-lg leading-8 text-[#1E3A8A]/75">{project.description}</p>
 
+            <div className="mt-9 grid grid-cols-2 gap-4">
+              {[["Role", project.role], ["Tools", project.tools], ["Platform", project.platform]].map(([label, value]) => (
+                <div key={label} className="rounded-[26px] border border-[#1E3A8A]/10 bg-white/80 p-5 shadow-lg backdrop-blur">
+                  <p className="text-xs font-bold uppercase tracking-widest text-[#1E3A8A]/45">{label}</p>
+                  <h4 className="mt-2 font-black text-[#1E3A8A]">{value}</h4>
+                </div>
+              ))}
             </div>
 
-            {/* Description */}
-
-            <p
-              className="
-              mt-10
-              text-lg
-              leading-8
-              text-gray-700
-              max-w-xl
-              "
-            >
-              <div className="flex items-center mt-8 mb-10">
-
-            <div
-                className="
-                w-140
-                h-1.5
-                bg-[#1E3A8A]
-                rounded-full
-                "
-            />
-
-            <div
-                className="
-                w-5
-                h-3
-                rounded-full
-                bg-[#1E3A8A]
-                ml-2
-                "
-            />
-
+            <div className="mt-9 flex flex-wrap gap-3">
+              <a href="https://expense-tracker-6hf2tkfxd-putras-projects-cfb47d66.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 rounded-full bg-[#F97316] px-8 py-4 font-black text-white shadow-xl transition hover:-translate-y-1 hover:shadow-2xl">
+                Live Preview <span aria-hidden="true">↗</span>
+              </a>
+              <a href="https://github.com/ardsyputra/expense-tracker" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 rounded-full border border-[#1E3A8A]/15 bg-white px-8 py-4 font-black text-[#1E3A8A] shadow-lg transition hover:-translate-y-1 hover:border-[#1E3A8A]">
+                View Repository <span aria-hidden="true">→</span>
+              </a>
             </div>
-            </p>
-
-            {/* Info Card */}
-
-            <div className="grid grid-cols-2 gap-5 mt-12">
-
-            <div
-                className="
-                bg-[#1E3A8A]
-                rounded-3xl
-                p-6
-                shadow-xl
-                border
-                border-[#1E3A8A]/10
-                hover:-translate-y-2
-                transition
-                duration-300
-                "
-            >
-                <p className="text-sm text-white/70">👤 Role</p>
-                <h4 className="mt-2 text-[#F7F4ED] font-bold">
-                {project.role}
-                </h4>
-            </div>
-
-            <div
-                className="
-                bg-[#1E3A8A]
-                rounded-3xl
-                p-6
-                shadow-xl
-                border
-                border-[#1E3A8A]/10
-                hover:-translate-y-2
-                transition
-                duration-300
-                "
-            >
-                <p className="text-sm text-white/70">⏱ Duration</p>
-                <h4 className="mt-2 text-[#F7F4ED] font-bold">
-                {project.duration}
-                </h4>
-            </div>
-
-            <div
-                className="
-                bg-[#1E3A8A]
-                rounded-3xl
-                p-6
-                shadow-xl
-                border
-                border-[#1E3A8A]/10
-                hover:-translate-y-2
-                transition
-                duration-300
-                "
-            >
-                <p className="text-sm text-white/70">💻 Platform</p>
-                <h4 className="mt-2 text-[#F7F4ED] font-bold">
-                {project.platform}
-                </h4>
-            </div>
-
-            <div
-                className="
-                bg-[#1E3A8A]
-                rounded-3xl
-                p-6
-                shadow-xl
-                border
-                border-[#1E3A8A]/10
-                hover:-translate-y-2
-                transition
-                duration-300
-                "
-            >
-                <p className="text-sm text-white/70">🎨 Tools</p>
-                <h4 className="mt-2 text-[#F7F4ED] font-bold">
-                {project.tools}
-                </h4>
-            </div>
-
-            </div>
-
-            {/* Button */}
-
-            <a
-            href="https://www.figma.com/proto/0YpUAkCsi3ZUM98AEo8EyE/Ardiansyah-Putra--223303030227-?node-id=176-621&p=f&viewport=446%2C588%2C0.15&t=4V79ZvSQL4qeBkBB-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=73%3A14"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="
-            inline-flex
-            items-center
-            gap-3
-
-            mt-10
-
-            bg-[#F97316]
-            text-[#F7F4ED]
-
-            px-8
-            py-4
-
-            rounded-full
-
-            font-semibold
-
-            shadow-xl
-
-            hover:bg-[#EA580C]
-            hover:scale-105
-            hover:shadow-2xl
-
-            transition-all
-            duration-300
-            "
-            >
-            View Case Study
-
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-5 h-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-            >
-                <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M7 17L17 7M17 7H9M17 7V15"
-                />
-            </svg>
-            </a>
-
           </div>
 
-          {/* ================= RIGHT ================= */}
-
-        <div className="relative flex justify-center items-center">
-
-        {/* Blob Background */}
-
-        <div
-            className="
-            absolute
-            w-[500px]
-            h-[500px]
-            rounded-full
-            bg-[#1E3A8A]/10
-            blur-3xl
-            "
-        />
-
-        {/* Decoration Circle */}
-
-        <div
-            className="
-            absolute
-            -top-8
-            right-0
-            w-28
-            h-28
-            border-[10px]
-            border-[#1E3A8A]/20
-            rounded-full
-            "
-        />
-
-        {/* Sticker */}
-
-        <div
-            className="
-            absolute
-            -left-6
-            top-12
-            bg-[#1E3A8A]
-            text-[#F7F4ED]
-            px-5
-            py-2
-            rounded-full
-            shadow-xl
-            rotate-[-12deg]
-            font-semibold
-            z-30
-            "
-        >
-            UI / UX ✦
-        </div>
-              <div
-                className="
-                absolute
-                w-[550px]
-                h-[550px]
-
-                rounded-full
-
-                bg-[#1E3A8A]/10
-
-                blur-[120px]
-                "
-                />
-        {/* Laptop */}
-
-        <div className="relative z-20">
-
-            {/* Laptop Screen */}
-
-            <div
-            className="
-            relative
-            z-20
-
-            hover:-translate-y-3
-            hover:rotate-1
-
-            transition
-            duration-500
-            "
-            >
-
-            {/* Camera */}
-
-            <div className="flex justify-center mb-3">
-
-                <div
-                className="
-                w-3
-                h-3
-                rounded-full
-                text-white/70
-                "
-                />
-
+          <div className="relative min-h-[560px] md:min-h-[620px]">
+            <div className="absolute inset-12 rounded-full bg-[#1E3A8A]/10 blur-3xl" />
+            <div className="expense-shell absolute inset-x-0 top-10 mx-auto w-full max-w-[700px] overflow-hidden rounded-[36px] border border-white/60 bg-[#101F52] p-3 shadow-[0_45px_100px_rgba(30,58,138,.38)]">
+              <div className="flex items-center gap-2 px-3 py-2">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#F97316]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-white/50" />
+                <span className="h-2.5 w-2.5 rounded-full bg-white/30" />
+              </div>
+              <div className="grid min-h-[500px] grid-cols-[70px_1fr] rounded-[26px] bg-[#F7F4ED] text-[#1E3A8A] md:grid-cols-[150px_1fr]">
+                <aside className="border-r border-[#1E3A8A]/10 px-3 py-5 md:px-5">
+                  <div className="text-lg font-black">ET</div>
+                  <nav className="mt-8 space-y-3 text-xs font-bold md:text-sm">
+                    {["Overview", "Transactions", "Categories", "Settings"].map((item, index) => (
+                      <div key={item} className={`rounded-xl px-3 py-3 ${index === 0 ? "bg-[#1E3A8A] text-white" : "text-[#1E3A8A]/55"}`}>{item}</div>
+                    ))}
+                  </nav>
+                </aside>
+                <main className="p-4 md:p-7">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-xs font-bold text-[#1E3A8A]/45">Good morning</p>
+                      <h3 className="mt-1 text-xl font-black md:text-2xl">Financial Overview</h3>
+                    </div>
+                    <div className="h-9 w-9 rounded-full bg-[#F97316]" />
+                  </div>
+                  <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-3">
+                    {[["Balance", "$12,450"], ["Income", "$3,820"], ["Expense", "$1,940"]].map(([label, value], index) => (
+                      <div key={label} className={`rounded-[20px] p-4 shadow-sm ${index === 0 ? "col-span-2 bg-[#1E3A8A] text-white md:col-span-1" : "bg-white"}`}>
+                        <p className="text-xs opacity-60">{label}</p>
+                        <p className="mt-2 text-lg font-black md:text-xl">{value}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-4 rounded-[22px] bg-white p-4">
+                    <div className="flex items-center justify-between">
+                      <h4 className="font-black">Cash Flow</h4>
+                      <span className="text-xs font-bold text-[#F97316]">This month</span>
+                    </div>
+                    <div className="mt-4 h-36">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <BarChart data={[
+                          { month: "Jan", value: 42 }, { month: "Feb", value: 58 }, { month: "Mar", value: 38 },
+                          { month: "Apr", value: 76 }, { month: "May", value: 52 }, { month: "Jun", value: 88 },
+                        ]}>
+                          <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: "#1E3A8A" }} />
+                          <Tooltip cursor={{ fill: "#1E3A8A", opacity: 0.05 }} contentStyle={{ borderRadius: 12, border: "none", fontSize: 12 }} />
+                          <Bar dataKey="value" fill="#1E3A8A" radius={[5, 5, 0, 0]} />
+                        </BarChart>
+                      </ResponsiveContainer>
+                    </div>
+                  </div>
+                </main>
+              </div>
             </div>
-
-            {/* Screen */}
-
-            <img
-                src={campus}
-                alt="Campus UI"
-                className="
-                w-[620px]
-                rounded-xl
-                object-cover
-                "
-            />
-
+            <div className="absolute bottom-4 left-0 rounded-[24px] bg-[#F97316] px-6 py-4 text-white shadow-2xl md:left-[-30px]">
+              <p className="text-xs font-bold opacity-70">Pages</p><p className="text-xl font-black">Dashboard / Auth</p>
             </div>
-
-            {/* Laptop Base */}
-
-            <div
-            className="
-            h-5
-            bg-gray-300
-            rounded-b-full
-            mx-auto
-            w-[680px]
-            shadow-xl
-            "
-            />
-
+          </div>
         </div>
-
-        {/* Floating Card */}
-
-        <div
-            className="
-            absolute
-            bottom-8
-            -left-5
-            bg-[#1E3A8A]
-            rounded-3xl
-            px-6
-            py-4
-            shadow-2xl
-            rotate-[-6deg]
-            hover:-translate-y-2
-            hover:rotate-0
-            transition
-            duration-300
-            z-30
-            "
-        >
-
-            <p className="text-sm text-white/70">
-            Project
-            </p>
-
-            <h4
-            className="
-            font-bold
-            text-[#F7F4ED]
-            "
-            >
-            Campus Information System
-            </h4>
-
-        </div>
-
-        {/* Floating Badge */}
-
-        <div
-            className="
-            absolute
-            top-32
-            -right-5
-            bg-[#F7F4ED]
-            px-6
-            py-4
-            rounded-3xl
-            shadow-xl
-            rotate-6
-            hover:rotate-0
-            hover:scale-105
-
-            transition
-            duration-300
-            z-30
-            "
-        >
-
-            <h3
-            className="
-            text-[#1E3A8A]
-            font-bold
-            text-xl
-            "
-            >
-            2026
-            </h3>
-
-        </div>
-
-        </div>
-
-          <div></div>
-
-        </div>
-
       </div>
-
     </section>
   );
 }

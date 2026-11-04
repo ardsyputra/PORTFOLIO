@@ -7,6 +7,7 @@ import react from "../assets/tools/react.png";
 import laravel from "../assets/tools/laravel.png";
 import jupyter from "../assets/tools/jupyter.png";
 import laragon from "../assets/tools/laragon.png";
+import { Code2, Palette, Headphones, Boxes } from "lucide-react";
 
 
 export default function Skills() {
@@ -18,11 +19,14 @@ export default function Skills() {
       number: "01",
       title: "Design",
       description: "Creative Interface",
+      icon: Palette,
       items: [
         "UI/UX Design",
+        "User Research",
         "Wireframe",
         "Prototype",
         "Design System",
+        "User Flow",
         "Responsive Design",
       ],
     },
@@ -30,29 +34,39 @@ export default function Skills() {
 
     {
       number: "02",
-      title: "Development",
+      title: "Full Stack Development",
       description: "Building Digital Product",
+      icon: Code2,
       items: [
         "React",
+        "TypeScript",
+        "JavaScript",
+        "Node.js",
         "Laravel",
+        "Gin",
+        "PostgreSQL",
+        "MySQL",
         "PHP",
         "Python",
         "REST API",
-        "JavaScript",
+        "Bootstrap",
+        "Git",
       ],
     },
 
 
     {
       number: "03",
-      title: "Blockchain",
-      description: "Data Security Research",
+      title: "IT Support",
+      description: "Technical Support & Troubleshooting",
+      icon: Headphones,
       items: [
-        "SHA-256",
-        "CouchDB",
-        "Data Integrity",
-        "Proof of Reserve",
-        "Hash Verification",
+        "Hardware & Software",
+        "Operating System",
+        "Network Troubleshooting",
+        "Technical Documentation",
+        "User Assistance",
+        "System Maintenance",
       ],
     },
 
@@ -243,7 +257,7 @@ export default function Skills() {
             text-lg
             "
           >
-            Design, Development and Blockchain Technology
+            Full Stack Development, IT Support, and UI/UX Design
           </p>
 
 
@@ -271,7 +285,7 @@ export default function Skills() {
 
 
         {
-          skills.map((skill,index)=>(
+          skills.map((skill)=>(
 
 
             <div
@@ -279,6 +293,7 @@ export default function Skills() {
               className="
               relative
               bg-[#F7F4ED]
+              group
               rounded-[45px]
               p-8
               shadow-2xl
@@ -316,8 +331,12 @@ export default function Skills() {
                 z-10
                 "
               >
-
-
+                <div className="mb-7 grid h-14 w-14 place-items-center rounded-2xl bg-[#F97316] text-white shadow-lg shadow-[#F97316]/20 transition duration-500 group-hover:rotate-6">
+                  {(() => {
+                    const Icon = skill.icon || Boxes;
+                    return <Icon size={26} strokeWidth={2.5} />;
+                  })()}
+                </div>
 
                 <h3
                   className="

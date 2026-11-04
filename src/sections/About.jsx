@@ -2,875 +2,145 @@ import "../assets/fonts/fonts.css";
 
 import profile from "../assets/images/profile.png";
 import texture from "../assets/images/texture.avif";
+import { Code2, Palette, Headphones, ArrowDown } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function About() {
+  const reduceMotion = useReducedMotion();
+  const focus = [
+    {
+      title: "Full Stack Developer",
+      description: "React, API, database, dan web application",
+      icon: Code2,
+    },
+    {
+      title: "IT Support",
+      description: "Troubleshooting, sistem, dan dukungan teknis",
+      icon: Headphones,
+    },
+    {
+      title: "UI/UX Designer",
+      description: "Research, wireframe, prototype, design system",
+      icon: Palette,
+    },
+  ];
+
   return (
     <section
       id="about"
-      className="
-      relative
-      min-h-screen
-      flex
-      items-center
-      bg-[#F7F4ED]
-      overflow-hidden
-      py-28
-      "
+      className="relative min-h-screen scroll-mt-24 overflow-hidden bg-[#F7F4ED] py-24"
     >
       <div
-      className="
-      flex
-      items-center
-      gap-3
-      mb-6
-      "
-      >
-
-      <div
-      className="
-      w-12
-      h-[2px]
-      bg-[#F97316]
-      "
-      />
-
-      <p
-      className="
-      font-satoshi
-      text-sm
-      tracking-[0.4em]
-      text-[#1E3A8A]/60
-      uppercase
-      "
-      >
-      About Me
-      </p>
-
-      </div>
-
-      {/* ================= BACKGROUND TEXTURE ================= */}
-
-      <div
-        className="
-        absolute
-        inset-0
-        opacity-[0.16]
-        pointer-events-none
-        "
+        className="pointer-events-none absolute inset-0 opacity-[0.15]"
         style={{
           backgroundImage: `url(${texture})`,
           backgroundRepeat: "repeat",
           backgroundSize: "280px",
         }}
       />
+      <div className="absolute -left-32 top-10 h-80 w-80 rounded-full bg-[#1E3A8A]/10 blur-3xl" />
+      <div className="absolute -right-28 bottom-0 h-96 w-96 rounded-full bg-[#F97316]/10 blur-3xl" />
 
-
-
-      {/* ================= BLUR ================= */}
-
-      <div
-        className="
-        absolute
-        -top-40
-        -left-32
-        w-[520px]
-        h-[520px]
-        rounded-full
-        bg-[#1E3A8A]/10
-        blur-3xl
-        animate-pulse
-        "
-      />
-
-      <div
-        className="
-        absolute
-        bottom-0
-        -right-24
-        w-[450px]
-        h-[450px]
-        rounded-full
-        bg-[#F97316]/10
-        blur-3xl
-        "
-      />
-
-
-
-      {/* ================= DOTS ================= */}
-
-      <div
-        className="
-        absolute
-        top-20
-        left-16
-        w-36
-        h-36
-        opacity-20
-        "
-        style={{
-          backgroundImage:
-            "radial-gradient(#1E3A8A 2px,transparent 2px)",
-          backgroundSize: "18px 18px",
-        }}
-      />
-
-
-
-      <div
-        className="
-        absolute
-        bottom-20
-        right-20
-        w-40
-        h-40
-        opacity-20
-        "
-        style={{
-          backgroundImage:
-            "radial-gradient(#F97316 2px,transparent 2px)",
-          backgroundSize: "18px 18px",
-        }}
-      />
-
-
-
-      {/* ================= BIG TYPO ================= */}
-
-      <h1
-        className="
-        absolute
-        top-0
-        left-0
-        text-[220px]
-        leading-none
-        text-[#1E3A8A]/5
-        font-bold
-        select-none
-        font-clash
-        "
-      >
-        ABOUT
-      </h1>
-
-
-
-      <div
-        className="
-        relative
-        z-10
-        max-w-7xl
-        mx-auto
-        px-6
-        w-full
-        grid
-        lg:grid-cols-2
-        gap-24
-        items-center
-        "
-      >
-
-
-
-
-        {/* ================= PROFILE ================= */}
-
-        <div
-          className="
-          relative
-          flex
-          justify-center
-          items-center
-          "
-        >
-
-
-
-          {/* Glow */}
-
-          <div
-            className="
-            absolute
-            w-[520px]
-            h-[520px]
-            rounded-full
-            bg-[#1E3A8A]/10
-            blur-3xl
-            "
-          />
-
-
-
-          {/* Circle */}
-
-          <div
-            className="
-            absolute
-            w-[370px]
-            h-[470px]
-            rounded-[70px]
-            border-[3px]
-            border-dashed
-            border-[#1E3A8A]/20
-            rotate-[-8deg]
-            "
-          />
-
-
-
-          {/* Blob */}
-
-          <div
-            className="
-            absolute
-            w-[430px]
-            h-[430px]
-            rounded-[40%_60%_55%_45%]
-            bg-[#1E3A8A]/10
-            rotate-12
-            animate-[float_6s_ease-in-out_infinite]
-            "
-          />
-
-
-
-          {/* Orange Ring */}
-
-          <div
-            className="
-            absolute
-            top-6
-            left-10
-            w-24
-            h-24
-            rounded-full
-            border-[8px]
-            border-[#F97316]/30
-            "
-          />
-
-
-
-          {/* Small Circle */}
-
-          <div
-            className="
-            absolute
-            top-24
-            right-14
-            w-6
-            h-6
-            rounded-full
-            bg-[#F97316]
-            shadow-xl
-            "
-          />
-
-
-
-          <div
-            className="
-            absolute
-            bottom-20
-            left-8
-            w-10
-            h-10
-            rounded-full
-            bg-[#1E3A8A]/20
-            "
-          />
-
-
-
-          {/* Sticker */}
-
-          <div
-            className="
-            absolute
-            top-6
-            right-8
-            px-7
-            py-3
-            rounded-full
-            bg-[#F97316]
-            text-white
-            shadow-2xl
-            rotate-12
-            font-clash
-            text-sm
-            tracking-wide
-            "
-          >
-            CREATIVE ✦
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
+        <div className="mb-12 flex items-end justify-between border-b border-[#1E3A8A]/10 pb-6">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-[#F97316]">01 / Introduction</p>
+            <h2 className="mt-3 text-5xl font-black text-[#1E3A8A] md:text-7xl">About Me</h2>
           </div>
-
-
-
-          <div
-            className="
-            absolute
-            bottom-20
-            left-2
-            px-7
-            py-3
-            rounded-full
-            bg-white
-            text-[#1E3A8A]
-            shadow-2xl
-            -rotate-12
-            font-clash
-            text-sm
-            "
-          >
-            UI / UX DESIGN
-          </div>
-
-
-
-          {/* IMAGE */}
-
-          <img
-            src={profile}
-            alt="Profile"
-            className="
-            relative
-            z-10
-            w-[440px]
-            md:w-[520px]
-            object-contain
-            drop-shadow-[0_35px_80px_rgba(0,0,0,.28)]
-            hover:scale-105
-            transition-all
-            duration-500
-            animate-[float_5s_ease-in-out_infinite]
-            "
-          />
-
+          <ArrowDown className="mb-2 hidden text-[#1E3A8A]/35 md:block" size={32} />
         </div>
 
-
-
-        {/* ================= RIGHT ================= */}
-
-<div>
-
-
-  {/* LABEL */}
-
-  <div
-    className="
-    inline-flex
-    bg-[#F97316]
-    text-white
-    px-6
-    py-3
-    rounded-full
-    shadow-xl
-    rotate-[-4deg]
-    font-clash
-    "
-  >
-    ✦ ABOUT ME
-  </div>
-
-
-
-
-  {/* TITLE */}
-
-  <h2
-  style={{
-    fontFamily: "soulrise"
-  }}
-    className="
-    mt-8
-    text-6xl
-    md:text-7xl
-    font-bold
-    leading-none
-    text-[#1E3A8A]
-    font-soulrise
-    "
-  >
-    Creative
-    <br/>
-    Developer
-  </h2>
-
-
-
-
-
-  {/* ================= ABOUT BOX ================= */}
-
-<div
-  className="
-  relative
-  mt-10
-  bg-[#1E3A8A]
-  rounded-[45px]
-  p-10
-  shadow-[0_30px_80px_rgba(30,58,138,.35)]
-  overflow-hidden
-  "
->
-
-
-  {/* Decoration */}
-
-  <div
-    className="
-    absolute
-    -top-20
-    -right-20
-    w-64
-    h-64
-    rounded-full
-    bg-white/10
-    "
-  />
-
-
-  <div
-    className="
-    absolute
-    bottom-8
-    left-8
-    w-16
-    h-16
-    border-4
-    border-[#F7F4ED]/20
-    rounded-full
-    "
-  />
-
-
-
-  <div
-    className="
-    absolute
-    top-10
-    right-10
-    w-5
-    h-5
-    bg-[#F97316]
-    rounded-full
-    "
-  />
-
-
-
-
-
-  {/* CONTENT */}
-
-  <div
-    className="
-    relative
-    z-10
-    "
-  >
-
-
-    <h3
-      className="
-      text-4xl
-      font-bold
-      text-[#F7F4ED]
-      font-soulrise
-      "
-    >
-      About Me
-    </h3>
-
-
-
-
-    <div
-      className="
-      mt-6
-      w-20
-      h-1
-      bg-[#F97316]
-      rounded-full
-      "
-    />
-
-
-
-
-    <p
-    
-      className="
-      mt-7
-      text-lg
-      leading-8
-      text-[#F7F4ED]/90
-      font-satoshi
-      "
-    >
-      Saya mahasiswa Teknik Informatika yang memiliki ketertarikan
-      pada UI/UX Design, Web Development, Backend Development,
-      dan Blockchain.
-    </p>
-
-
-
-    <p
-      className="
-      mt-5
-      text-lg
-      leading-8
-      text-[#F7F4ED]/80
-      font-satoshi
-      "
-    >
-      Saya menggabungkan kreativitas desain dan kemampuan
-      pemrograman untuk membangun solusi digital yang modern,
-      interaktif, dan berorientasi pada pengalaman pengguna.
-    </p>
-
-
-
-    {/* MINI TAG */}
-
-    <div
-      className="
-      mt-8
-      flex
-      flex-wrap
-      gap-3
-      "
-    >
-
-      <span
-        className="
-        bg-[#F7F4ED]
-        text-[#1E3A8A]
-        px-5
-        py-2
-        rounded-full
-        font-clash
-        "
-      >
-        UI/UX
-      </span>
-
-
-      <span
-        className="
-        bg-[#F97316]
-        text-white
-        px-5
-        py-2
-        rounded-full
-        font-clash
-        "
-      >
-        Developer
-      </span>
-
-
-      <span
-        className="
-        bg-white/20
-        text-[#F7F4ED]
-        px-5
-        py-2
-        rounded-full
-        font-clash
-        "
-      >
-        Blockchain
-      </span>
-
-
-    </div>
-
-
-  </div>
-
-
-</div>
-
-
-
-
-
-  {/* SMALL INFO */}
-
-
-  <div
-    className="
-    mt-8
-    grid
-    grid-cols-3
-    gap-4
-    "
-  >
-
-
-    <div
-      className="
-      bg-white
-      rounded-3xl
-      p-5
-      shadow-xl
-      "
-    >
-
-      <h4
-        className="
-        text-3xl
-        font-bold
-        text-[#F97316]
-        font-clash
-        "
-      >
-        04
-      </h4>
-
-      <p className="font-satoshi text-[#1E3A8A]">
-        Projects
-      </p>
-
-    </div>
-
-
-
-    <div
-      className="
-      bg-white
-      rounded-3xl
-      p-5
-      shadow-xl
-      "
-    >
-
-      <h4
-        className="
-        text-3xl
-        font-bold
-        text-[#F97316]
-        font-clash
-        "
-      >
-        10+
-      </h4>
-
-      <p className="font-satoshi text-[#1E3A8A]">
-        Tools
-      </p>
-
-    </div>
-
-
-
-
-    <div
-      className="
-      bg-white
-      rounded-3xl
-      p-5
-      shadow-xl
-      "
-    >
-
-      <h4
-        className="
-        text-3xl
-        font-bold
-        text-[#F97316]
-        font-clash
-        "
-      >
-        2026
-      </h4>
-
-      <p className="font-satoshi text-[#1E3A8A]">
-        Portfolio
-      </p>
-
-    </div>
-
-
-  </div>
-
-          
-          {/* ================= SKILL TAGS ================= */}
-
-          <div
-            className="
-            mt-10
-            flex
-            flex-wrap
-            gap-4
-            "
+        <div className="grid items-center gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-14">
+          <motion.div
+            drag={!reduceMotion}
+            dragConstraints={{ left: -16, right: 16, top: -12, bottom: 12 }}
+            dragElastic={0.14}
+            initial={reduceMotion ? false : { opacity: 0, scale: 0.94, rotate: -2 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+            className="relative mx-auto flex min-h-[480px] w-full max-w-[620px] cursor-grab items-end justify-center active:cursor-grabbing md:min-h-[620px]"
           >
-
-
-            <div
-              className="
-              bg-[#1E3A8A]
-              text-[#F7F4ED]
-              px-6
-              py-3
-              rounded-full
-              shadow-xl
-              font-clash
-              rotate-[-5deg]
-              hover:-translate-y-2
-              hover:rotate-0
-              transition
-              duration-300
-              "
+            <motion.div
+              animate={reduceMotion ? undefined : { y: [0, -10, 0], rotate: [-6, 3, -6] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute bottom-7 left-4 z-30 rotate-[-8deg] rounded-full bg-[#F97316] px-5 py-3 text-xs font-black uppercase text-white shadow-xl md:left-8"
             >
-              UI / UX ✦
+              Curious mind ✦
+            </motion.div>
+            <motion.div
+              animate={reduceMotion ? undefined : { y: [0, 8, 0], rotate: [7, -2, 7] }}
+              transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute right-[-12px] top-[28%] z-30 rotate-12 rounded-[18px] bg-[#F7F4ED] px-4 py-3 text-xs font-black text-[#1E3A8A] shadow-xl"
+            >
+              build • test • repeat
+            </motion.div>
+            <motion.img
+              src={profile}
+              alt="Ardiansyah Putra"
+              animate={reduceMotion ? undefined : { y: [0, -8, 0] }}
+              transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
+              className="relative z-10 max-h-[620px] w-[112%] max-w-none object-contain object-bottom transition duration-700 hover:scale-[1.03]"
+            />
+          </motion.div>
+
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <span className="inline-flex items-center rounded-full bg-[#F97316] px-5 py-2 text-xs font-black uppercase tracking-[0.18em] text-white">
+              Full Stack Developer • IT Support • UI/UX Designer
+            </span>
+
+            <h3 className="mt-7 text-4xl font-black leading-[0.98] text-[#1E3A8A] md:text-6xl">
+              membangun solusi digital
+              <span className="block text-[#F97316]">yang usable dan reliable.</span>
+            </h3>
+
+            <div className="mt-8 rounded-[30px] border border-[#1E3A8A]/10 bg-white p-6 shadow-[0_24px_70px_rgba(30,58,138,.10)] md:p-8">
+              <p className="text-base leading-8 text-[#171717]/70 md:text-lg">
+                Aku mahasiswa Teknik Informatika yang berfokus sebagai <span className="font-black text-[#F97316]">Full Stack Web Developer</span>, IT Support, dan UI/UX Designer. Aku menikmati proses mengubah kebutuhan pengguna menjadi produk digital yang fungsional, mudah digunakan, dan dapat diandalkan.
+              </p>
+              <p className="mt-4 text-base leading-8 text-[#171717]/70 md:text-lg">
+                Dari merancang interface dan prototype hingga membangun frontend, REST API, serta database, aku terbiasa menghubungkan sisi tampilan, logika sistem, dan kebutuhan operasional. Sebagai IT Support, aku juga terbiasa menganalisis masalah teknis dan membantu pengguna menemukan solusi yang tepat.
+              </p>
             </div>
 
-
-
-            <div
-              className="
-              bg-white
-              text-[#1E3A8A]
-              px-6
-              py-3
-              rounded-full
-              shadow-xl
-              font-clash
-              rotate-3
-              hover:-translate-y-2
-              hover:rotate-0
-              transition
-              duration-300
-              "
-            >
-              React
+            <div className="mt-6 grid gap-4 sm:grid-cols-3">
+              {focus.map(({ title, description, icon: Icon }, index) => (
+                <motion.div
+                  key={title}
+                  initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.08 }}
+                  whileHover={reduceMotion ? undefined : { y: -8, rotate: index === 1 ? 1 : -1 }}
+                  className="rounded-[22px] border border-[#1E3A8A]/10 bg-[#F2EFE6] p-5 transition-shadow hover:shadow-xl"
+                >
+                  <Icon size={22} className="text-[#F97316]" />
+                  <h4 className="mt-4 font-black text-[#1E3A8A]">{title}</h4>
+                  <p className="mt-1 text-xs leading-5 text-[#171717]/55">{description}</p>
+                </motion.div>
+              ))}
             </div>
 
-
-
-            <div
-              className="
-              bg-[#F97316]
-              text-white
-              px-6
-              py-3
-              rounded-full
-              shadow-xl
-              font-clash
-              rotate-[-3deg]
-              hover:-translate-y-2
-              hover:rotate-0
-              transition
-              duration-300
-              "
-            >
-              Laravel
+            <div className="mt-6 grid grid-cols-3 gap-3">
+              {[
+                ["05", "Projects"],
+                ["07", "Tools shown"],
+                ["2026", "Portfolio"],
+              ].map(([value, label]) => (
+                <div key={label} className="rounded-[20px] bg-[#1E3A8A] px-3 py-5 text-center text-white shadow-lg">
+                  <p className="text-2xl font-black text-[#F97316] md:text-3xl">{value}</p>
+                  <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.12em] text-white/60 md:text-xs">{label}</p>
+                </div>
+              ))}
             </div>
-
-
-
-            <div
-              className="
-              bg-white
-              text-[#1E3A8A]
-              px-6
-              py-3
-              rounded-full
-              shadow-xl
-              font-clash
-              rotate-2
-              hover:-translate-y-2
-              hover:rotate-0
-              transition
-              duration-300
-              "
-            >
-              Backend
-            </div>
-
-
-
-            <div
-              className="
-              bg-[#1E3A8A]
-              text-white
-              px-6
-              py-3
-              rounded-full
-              shadow-xl
-              font-clash
-              rotate-[-2deg]
-              hover:-translate-y-2
-              hover:rotate-0
-              transition
-              duration-300
-              "
-            >
-              Blockchain
-            </div>
-
-
-          </div>
-
-
+          </motion.div>
         </div>
-
-
-
       </div>
-
-
-
-
-
-      {/* ================= FLOATING ELEMENT ================= */}
-
-
-      <div
-        className="
-        absolute
-        bottom-20
-        left-10
-        bg-[#1E3A8A]
-        text-white
-        px-6
-        py-3
-        rounded-full
-        shadow-2xl
-        rotate-[-12deg]
-        font-clash
-        animate-bounce
-        "
-      >
-        Creative Developer ✦
-      </div>
-
-
-
-      <div
-        className="
-        absolute
-        top-32
-        right-20
-        bg-white
-        text-[#1E3A8A]
-        px-6
-        py-3
-        rounded-full
-        shadow-xl
-        rotate-12
-        font-clash
-        "
-      >
-        2026 Portfolio
-      </div>
-
-
-
-
     </section>
   );
 }

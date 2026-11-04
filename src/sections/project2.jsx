@@ -172,8 +172,10 @@ px-6
 
 className="
 grid
-lg:grid-cols-2
-gap-16
+grid-cols-1
+lg:grid-cols-[0.85fr_1.15fr]
+gap-10
+lg:gap-12
 items-center
 "
 
@@ -369,7 +371,8 @@ shadow-2xl
 
 className="
 grid
-grid-cols-2
+grid-cols-1
+sm:grid-cols-2
 gap-8
 "
 
@@ -552,6 +555,10 @@ View Case Study →
 
 className="
 relative
+ w-[calc(100%+3rem)]
+ -mx-6
+ lg:mx-0
+ lg:w-auto
 flex
 justify-center
 items-center
@@ -664,6 +671,8 @@ rounded-full
 shadow-2xl
 rotate-[-12deg]
 font-bold
+hidden
+sm:block
 z-30
 animate-bounce
 "
@@ -704,8 +713,10 @@ src={kuliner}
 alt="Food App UI"
 
 className="
-w-[850px]
+w-[calc(100vw-1rem)]
 max-w-none
+lg:w-full
+lg:max-w-[1100px]
 rounded-[35px]
 object-contain
 drop-shadow-[0_40px_80px_rgba(0,0,0,.45)]
@@ -738,6 +749,8 @@ px-7
 py-5
 shadow-2xl
 rotate-[-8deg]
+hidden
+sm:block
 z-30
 animate-[float_4s_ease-in-out_infinite]
 "
@@ -792,6 +805,8 @@ px-6
 py-5
 shadow-2xl
 rotate-6
+hidden
+sm:block
 z-30
 animate-[float_6s_ease-in-out_infinite]
 "

@@ -30,7 +30,6 @@ role:"Full Stack Developer",
 framework:"Laravel",
 database:"MySQL",
 platform:"Web Application",
-duration:"Internship Project"
 
 
 
@@ -241,8 +240,10 @@ px-6
 
 className="
 grid
-lg:grid-cols-2
-gap-20
+grid-cols-1
+lg:grid-cols-[0.85fr_1.15fr]
+gap-10
+lg:gap-12
 items-center
 "
 
@@ -465,7 +466,8 @@ max-w-xl
 className="
 mt-10
 grid
-grid-cols-2
+grid-cols-1
+sm:grid-cols-2
 gap-6
 "
 
@@ -626,6 +628,7 @@ font-bold
 
 </h3>
 
+</div>
 
 </div>
 
@@ -637,57 +640,6 @@ font-bold
 
 
 
-<div
-
-className="
-bg-[#1E3A8A]
-text-[#F7F4ED]
-rounded-[30px]
-p-6
-shadow-xl
-hover:-translate-y-2
-transition
-"
-
->
-
-
-<p
-
-className="
-text-white/60
-text-sm
-"
-
->
-
-Duration
-
-</p>
-
-
-<h3
-
-className="
-mt-2
-font-bold
-"
-
->
-
-{project.duration}
-
-</h3>
-
-
-</div>
-
-
-
-
-
-
-</div>
 
 
 
@@ -705,12 +657,10 @@ font-bold
 
 href="https://github.com/dachi01-afk/Overtime-Request-System"
 
-target="_blank"
-
-rel="noopener noreferrer"
-
 className="
 inline-flex
+relative
+z-10
 mt-10
 bg-[#F97316]
 text-white
@@ -750,6 +700,10 @@ View Repository →
 
 className="
 relative
+ w-[calc(100%+3rem)]
+ -mx-6
+ lg:mx-0
+ lg:w-auto
 flex
 justify-center
 items-center
@@ -773,6 +727,7 @@ items-center
 
 className="
 absolute
+pointer-events-none
 w-[750px]
 h-[750px]
 rounded-full
@@ -800,6 +755,7 @@ blur-3xl
 
 className="
 absolute
+pointer-events-none
 w-[620px]
 h-[620px]
 rounded-full
@@ -827,6 +783,7 @@ border-[#1E3A8A]/10
 
 className="
 absolute
+pointer-events-none
 right-[-40px]
 top-20
 w-72
@@ -866,6 +823,7 @@ backgroundSize:"25px 25px"
 
 className="
 absolute
+pointer-events-none
 left-20
 bottom-10
 w-28
@@ -912,8 +870,10 @@ src={overtime}
 alt="Employee Overtime System"
 
 className="
-w-[1100px]
+w-[calc(100vw-1rem)]
 max-w-none
+lg:w-full
+lg:max-w-[1400px]
 rounded-[30px]
 object-contain
 drop-shadow-[0_40px_80px_rgba(30,58,138,.35)]
@@ -949,6 +909,8 @@ rounded-full
 shadow-2xl
 rotate-[-12deg]
 font-black
+hidden
+sm:block
 z-30
 animate-[float_4s_ease-in-out_infinite]
 "
@@ -984,6 +946,8 @@ px-8
 py-6
 shadow-2xl
 rotate-6
+hidden
+sm:block
 z-30
 "
 
@@ -1046,6 +1010,8 @@ rounded-[35px]
 p-7
 shadow-2xl
 rotate-[-8deg]
+hidden
+sm:block
 z-30
 "
 
@@ -1112,6 +1078,8 @@ px-8
 py-5
 shadow-2xl
 rotate-6
+hidden
+sm:block
 z-30
 "
 
@@ -1177,6 +1145,8 @@ flex
 items-center
 justify-center
 text-3xl
+hidden
+sm:block
 z-30
 "
 
@@ -1240,6 +1210,8 @@ rounded-full
 shadow-xl
 rotate-[-6deg]
 font-bold
+hidden
+sm:block
 z-30
 "
 
