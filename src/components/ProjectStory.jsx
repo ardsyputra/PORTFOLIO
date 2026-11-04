@@ -1,14 +1,21 @@
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ArrowUpRight, ChevronLeft, ChevronRight, GitBranch, Globe2, Lightbulb, MonitorPlay, Workflow } from "lucide-react";
+import { ArrowUpRight, ChevronLeft, ChevronRight, GitBranch, Globe2, Lightbulb, Monitor, MonitorPlay, Smartphone, Workflow } from "lucide-react";
 import texture from "../assets/images/texture.avif";
 
-export default function ProjectStory({ number, name, category, description, screenshot, screenshots, liveUrl, repositoryUrl, learnings, process }) {
+export default function ProjectStory({ number, name, category, description, screenshot, screenshots, previewGroups, liveUrl, repositoryUrl, learnings, process }) {
+  const [previewMode, setPreviewMode] = useState(previewGroups ? "desktop" : "default");
   const previewImages = screenshots?.length ? screenshots : screenshot ? [screenshot] : [];
+  const activeGroup = previewGroups?.[previewMode] ?? previewImages;
+  const previewItems = activeGroup.map((item) => typeof item === "string" ? { src: item, label: "" } : item);
   const [activePreview, setActivePreview] = useState(0);
   const reduceMotion = useReducedMotion();
-  const showPrevious = () => setActivePreview((current) => (current - 1 + previewImages.length) % previewImages.length);
-  const showNext = () => setActivePreview((current) => (current + 1) % previewImages.length);
+  const showPrevious = () => setActivePreview((current) => (current - 1 + previewItems.length) % previewItems.length);
+  const showNext = () => setActivePreview((current) => (current + 1) % previewItems.length);
+  const changePreviewMode = (mode) => {
+    setPreviewMode(mode);
+    setActivePreview(0);
+  };
 
   return (
     <section id={`project-${number}`} className="relative overflow-hidden bg-[#F2EFE6] py-24 text-[#171717] scroll-mt-24">
@@ -49,24 +56,53 @@ export default function ProjectStory({ number, name, category, description, scre
             <h3 className="mt-5 text-3xl font-black text-[#2451A6] md:text-4xl">Pengenalan</h3>
             <p className="mt-5 max-w-2xl text-base leading-8 text-[#171717]/65 md:text-lg">{description}</p>
 
+            {previewGroups && (
+              <div className="mt-6 flex w-fit rounded-full border border-[#2451A6]/10 bg-white p-1.5 shadow-sm" aria-label="Mode tampilan dokumentasi">
+                <button
+                  type="button"
+                  onClick={() => changePreviewMode("desktop")}
+                  aria-pressed={previewMode === "desktop"}
+                  className={`flex items-center gap-2 rounded-full px-4 py-2.5 text-xs font-black transition-all ${
+                    previewMode === "desktop" ? "bg-[#2451A6] text-white shadow-md" : "text-[#2451A6]/55 hover:text-[#2451A6]"
+                  }`}
+                >
+                  <Monitor size={16} /> Desktop
+                </button>
+                <button
+                  type="button"
+                  onClick={() => changePreviewMode("mobile")}
+                  aria-pressed={previewMode === "mobile"}
+                  className={`flex items-center gap-2 rounded-full px-4 py-2.5 text-xs font-black transition-all ${
+                    previewMode === "mobile" ? "bg-[#F97316] text-white shadow-md" : "text-[#2451A6]/55 hover:text-[#2451A6]"
+                  }`}
+                >
+                  <Smartphone size={16} /> Mobile
+                </button>
+              </div>
+            )}
+
             <div className="mt-8 overflow-hidden rounded-[24px] border border-[#2451A6]/10 bg-[#2451A6]/5 p-2 md:p-3">
-              {previewImages.length ? (
+              {previewItems.length ? (
                 <>
                   <div className="relative overflow-hidden rounded-[18px] border border-[#2451A6]/10 bg-white shadow-lg">
                     <AnimatePresence mode="wait">
                       <motion.img
-                        key={previewImages[activePreview]}
-                        src={previewImages[activePreview]}
+                        key={previewItems[activePreview].src}
+                        src={previewItems[activePreview].src}
                         alt={`${name} documentation preview ${activePreview + 1}`}
                         initial={reduceMotion ? false : { opacity: 0, scale: 0.97, x: 24 }}
                         animate={{ opacity: 1, scale: 1, x: 0 }}
                         exit={reduceMotion ? undefined : { opacity: 0, scale: 1.02, x: -24 }}
                         transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                        className="aspect-[16/10] w-full object-contain bg-[#EEF2F8]"
+                        className={`mx-auto bg-[#EEF2F8] object-contain ${
+                          previewMode === "mobile"
+                            ? "aspect-[9/16] max-h-[680px] w-full max-w-[430px]"
+                            : "aspect-[16/10] w-full"
+                        }`}
                       />
                     </AnimatePresence>
 
-                    {previewImages.length > 1 && (
+                    {previewItems.length > 1 && (
                       <>
                         <button
                           type="button"
@@ -88,15 +124,20 @@ export default function ProjectStory({ number, name, category, description, scre
                     )}
 
                     <span className="absolute bottom-3 right-3 rounded-full bg-[#171717]/80 px-4 py-2 text-xs font-black text-white shadow-lg backdrop-blur">
-                      {activePreview + 1} / {previewImages.length}
+                      {activePreview + 1} / {previewItems.length}
                     </span>
+                    {previewItems[activePreview].label && (
+                      <span className="absolute bottom-3 left-3 rounded-full bg-white/95 px-4 py-2 text-xs font-black text-[#2451A6] shadow-lg">
+                        {previewItems[activePreview].label}
+                      </span>
+                    )}
                   </div>
 
-                  {previewImages.length > 1 && (
+                  {previewItems.length > 1 && (
                     <div className="mt-4 flex items-center justify-center gap-2" aria-label="Navigasi dokumentasi">
-                      {previewImages.map((image, index) => (
+                      {previewItems.map((item, index) => (
                         <button
-                          key={image}
+                          key={item.src}
                           type="button"
                           onClick={() => setActivePreview(index)}
                           aria-label={`Buka preview ${index + 1}`}

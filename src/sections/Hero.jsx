@@ -68,7 +68,18 @@ export default function Hero() {
               Fullstack Web Developer · UI UX Designer
             </span>
           </div>
-          <span>2026</span>
+          <div className="flex items-center gap-3 md:gap-5">
+            <a
+              href="/CV_Ardiansyah_Putra.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-[#2451A6]/25 bg-white/70 px-3 py-2 text-[9px] font-black uppercase tracking-[0.12em] text-[#2451A6] shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:border-[#F97316] hover:text-[#F97316] md:px-4 md:text-[10px]"
+              aria-label="Buka Resume CV Ardiansyah Putra"
+            >
+              Resume CV
+            </a>
+            <span>2026</span>
+          </div>
         </motion.div>
 
         <motion.div

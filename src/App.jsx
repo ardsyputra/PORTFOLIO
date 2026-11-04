@@ -43,18 +43,26 @@ export default function App() {
           description="Aplikasi pencatatan keuangan untuk membantu pengguna mencatat transaksi, mengelompokkan kategori, memantau arus kas, dan mengelola akun melalui dashboard yang responsif."
           liveUrl="https://expense-tracker-6hf2tkfxd-putras-projects-cfb47d66.vercel.app"
           repositoryUrl="https://github.com/ardsyputra/expense-tracker"
-          screenshots={[
-            "/assets/expense-tracker/dasboard.png",
-            "/assets/expense-tracker/transaction.png",
-            "/assets/expense-tracker/categories.png",
-            "/assets/expense-tracker/add-transaction.png",
-            "/assets/expense-tracker/add-categories.png",
-            "/assets/expense-tracker/settings.png",
-            "/assets/expense-tracker/login.png",
-            "/assets/expense-tracker/register.png",
-            "/assets/expense-tracker/whatsapp-image-2026-11-04-at-13-22-56.jpeg",
-            "/assets/expense-tracker/whatsapp-image-2026-11-04-at-13-22-57.jpeg",
-          ]}
+          previewGroups={{
+            desktop: [
+              { src: "/assets/expense-tracker/login.png", label: "Login" },
+              { src: "/assets/expense-tracker/register.png", label: "Register" },
+              { src: "/assets/expense-tracker/dasboard.png", label: "Dashboard" },
+              { src: "/assets/expense-tracker/transaction.png", label: "Transactions" },
+              { src: "/assets/expense-tracker/add-transaction.png", label: "Add Transaction" },
+              { src: "/assets/expense-tracker/categories.png", label: "Categories" },
+              { src: "/assets/expense-tracker/add-categories.png", label: "Add Category" },
+              { src: "/assets/expense-tracker/settings.png", label: "Settings" },
+            ],
+            mobile: [
+              { src: "/assets/expense-tracker/whatsapp-image-2026-11-04-at-13-22-56.jpeg", label: "Login" },
+              { src: "/assets/expense-tracker/whatsapp-image-2026-11-04-at-13-22-56-1.jpeg", label: "Register" },
+              { src: "/assets/expense-tracker/whatsapp-image-2026-11-04-at-13-22-56-2.jpeg", label: "Dashboard" },
+              { src: "/assets/expense-tracker/whatsapp-image-2026-11-04-at-13-22-57.jpeg", label: "Transactions" },
+              { src: "/assets/expense-tracker/whatsapp-image-2026-11-04-at-13-22-57-1.jpeg", label: "Categories" },
+              { src: "/assets/expense-tracker/whatsapp-image-2026-11-04-at-13-22-57-2.jpeg", label: "Settings" },
+            ],
+          }}
           learnings={[
             "Menyusun struktur full-stack yang konsisten antara React, REST API, Node.js, Gin, dan PostgreSQL.",
             "Merancang dashboard keuangan yang informatif tanpa membuat visual terlalu padat.",
