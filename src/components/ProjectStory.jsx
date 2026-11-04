@@ -96,7 +96,7 @@ export default function ProjectStory({ number, name, category, description, scre
                         transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                         className={`mx-auto bg-[#EEF2F8] object-contain ${
                           previewMode === "mobile"
-                            ? "h-[min(680px,72vh)] w-auto max-w-full p-2"
+                            ? "block h-auto max-h-[680px] w-auto max-w-full object-contain"
                             : "aspect-[16/10] w-full"
                         }`}
                       />
