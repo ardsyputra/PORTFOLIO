@@ -12,6 +12,9 @@ import MotionReveal from "./components/MotionReveal";
 import FigmaPrototype from "./components/FigmaPrototype";
 import ProjectStory from "./components/ProjectStory";
 
+import videoSistemInformasi from "./assets/video sistem informasi.mp4";
+import videoKuliner from "./assets/Video Kuliner.mp4";
+
 
 export default function App() {
   return (
@@ -55,12 +58,14 @@ export default function App() {
               { src: "/assets/expense-tracker/settings.png", label: "Settings" },
             ],
             mobile: [
-              { src: "/assets/expense-tracker/whatsapp-image-2026-11-04-at-13-22-56.jpeg", label: "Login" },
-              { src: "/assets/expense-tracker/whatsapp-image-2026-11-04-at-13-22-56-1.jpeg", label: "Register" },
-              { src: "/assets/expense-tracker/whatsapp-image-2026-11-04-at-13-22-56-2.jpeg", label: "Dashboard" },
-              { src: "/assets/expense-tracker/whatsapp-image-2026-11-04-at-13-22-57.jpeg", label: "Transactions" },
-              { src: "/assets/expense-tracker/whatsapp-image-2026-11-04-at-13-22-57-1.jpeg", label: "Categories" },
-              { src: "/assets/expense-tracker/whatsapp-image-2026-11-04-at-13-22-57-2.jpeg", label: "Settings" },
+              { src: "/assets/expense-tracker/capture-mobile-login.png", label: "Login" },
+              { src: "/assets/expense-tracker/capture-mobile-register.png", label: "Register" },
+              { src: "/assets/expense-tracker/capture-mobile-dashboard.png", label: "Dashboard" },
+              { src: "/assets/expense-tracker/capture-mobile-transactions.png", label: "Transactions" },
+              { src: "/assets/expense-tracker/capture-mobile-add-transaction.png", label: "Add Transaction" },
+              { src: "/assets/expense-tracker/capture-mobile-categories.png", label: "Categories" },
+              { src: "/assets/expense-tracker/capture-mobile-add-category.png", label: "Add Category" },
+              { src: "/assets/expense-tracker/capture-mobile-settings.png", label: "Settings" },
             ],
           }}
           learnings={[
@@ -134,9 +139,9 @@ export default function App() {
           title="Sistem Informasi UNPRI"
           category="UI/UX Design / University Information System"
           description="Merancang pengalaman digital Sistem Informasi UNPRI yang membantu mahasiswa, dosen, dan akademik menjalankan alur informasi kampus secara lebih cepat, terstruktur, dan mudah dipahami."
-          video="/videos/campus-prototype.mp4"
+          video={videoSistemInformasi}
           fallbackFrame="/assets/campus-01.png"
-          figmaUrl="https://www.figma.com/@ardsyputra"
+          figmaUrl="https://www.figma.com/proto/0YpUAkCsi3ZUM98AEo8EyE/Ardiansyah-Putra--223303030227-?node-id=2-41&t=tsoLfjZgb8uZDJW8-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=73%3A14"
           role="UI/UX Designer"
           tools={["Figma", "Wireframe", "Prototype", "Design System"]}
           challenge="Pengguna membutuhkan akses cepat ke informasi akademik dengan navigasi yang jelas, hierarki informasi konsisten, serta alur yang tidak membingungkan."
@@ -152,7 +157,7 @@ export default function App() {
           variant="light"
           category="UI/UX Design / Food Discovery App"
           description="Merancang aplikasi Kuliner Hemat untuk membantu pengguna menemukan kuliner terjangkau melalui pencarian rekomendasi yang cepat, visual menarik, dan alur pemesanan yang sederhana."
-          video="/videos/food-prototype.mp4"
+          video={videoKuliner}
           fallbackFrame="/assets/food-01.png"
           figmaUrl="https://www.figma.com/proto/0YpUAkCsi3ZUM98AEo8EyE/Ardiansyah-Putra--223303030227-?node-id=903-217&p=f&viewport=-561%2C423%2C0.46&t=RCE15uJxA3hXxwhx-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=903%3A217&page-id=314%3A107"
           role="UI/UX Designer"

@@ -2,7 +2,7 @@ import "../assets/fonts/fonts.css";
 
 import profile from "../assets/images/profile.png";
 import texture from "../assets/images/texture.avif";
-import { Code2, Palette, Headphones, ArrowDown } from "lucide-react";
+import { Code2, Palette, Headphones, ArrowDown, Download } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 
 export default function About() {
@@ -106,6 +106,18 @@ export default function About() {
               <p className="mt-4 text-base leading-8 text-[#171717]/70 md:text-lg">
                 Dari merancang interface dan prototype hingga membangun frontend, REST API, serta database, aku terbiasa menghubungkan sisi tampilan, logika sistem, dan kebutuhan operasional. Sebagai IT Support, aku juga terbiasa menganalisis masalah teknis dan membantu pengguna menemukan solusi yang tepat.
               </p>
+              <div className="mt-6 flex items-center">
+                <a
+                  href="/CV_Ardiansyah_Putra.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 rounded-full bg-[#F97316] px-8 py-4 text-sm font-black uppercase tracking-[0.08em] text-white shadow-[0_14px_30px_rgba(249,115,22,.28)] transition hover:-translate-y-1 hover:bg-[#2451A6]"
+                  aria-label="Download Resume CV Ardiansyah Putra"
+                >
+                  <Download size={20} />
+                  Download Resume CV
+                </a>
+              </div>
             </div>
 
             <div className="mt-6 grid gap-4 sm:grid-cols-3">

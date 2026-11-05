@@ -54,7 +54,7 @@ export default function FigmaPrototype({
               <span className="h-3 w-3 rounded-full bg-[#1E3A8A]/15" />
               <span className="ml-3 text-xs font-bold text-[#1E3A8A]/45">Prototype Playback</span>
             </div>
-            <video className="aspect-video w-full rounded-[22px] bg-[#111]" controls autoPlay muted loop playsInline poster={fallbackFrame}>
+            <video className="aspect-video w-full rounded-[22px] bg-[#111] object-contain" controls autoPlay muted loop playsInline poster={fallbackFrame}>
               <source src={video} type="video/mp4" />
               Your browser does not support prototype video playback.
             </video>

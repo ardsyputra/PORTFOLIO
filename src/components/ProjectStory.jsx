@@ -84,7 +84,7 @@ export default function ProjectStory({ number, name, category, description, scre
             <div className="mt-8 overflow-hidden rounded-[24px] border border-[#2451A6]/10 bg-[#2451A6]/5 p-2 md:p-3">
               {previewItems.length ? (
                 <>
-                  <div className="relative overflow-hidden rounded-[18px] border border-[#2451A6]/10 bg-white shadow-lg">
+                  <div className="relative flex min-h-[430px] items-center justify-center overflow-hidden rounded-[18px] border border-[#2451A6]/10 bg-white shadow-lg">
                     <AnimatePresence mode="wait">
                       <motion.img
                         key={previewItems[activePreview].src}
@@ -97,7 +97,7 @@ export default function ProjectStory({ number, name, category, description, scre
                         className={`mx-auto bg-[#EEF2F8] object-contain ${
                           previewMode === "mobile"
                             ? "block h-auto max-h-[680px] w-auto max-w-full object-contain"
-                            : "aspect-[16/10] w-full"
+                            : "block max-h-[760px] w-full object-contain"
                         }`}
                       />
                     </AnimatePresence>

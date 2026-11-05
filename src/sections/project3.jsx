@@ -1,5 +1,6 @@
 import texture from "../assets/images/texture.avif";
 import overtime from "../assets/images/employee-overtime-genz.svg";
+import { motion } from "framer-motion";
 
 
 export default function Project3(){
@@ -239,13 +240,13 @@ px-6
 <div
 
 className="
-grid
-grid-cols-1
-lg:grid-cols-[0.85fr_1.15fr]
-gap-10
-lg:gap-12
-items-center
-"
+            grid
+            grid-cols-1
+            lg:grid-cols-[0.5fr_1.5fr]
+            gap-10
+            lg:gap-14
+            items-center
+          "
 
 >
 
@@ -698,16 +699,15 @@ View Repository →
 
 <div
 
-className="
-relative
- w-[calc(100%+3rem)]
- -mx-6
- lg:mx-0
- lg:w-auto
-flex
-justify-center
-items-center
-"
+          className="
+            relative
+            w-full
+            lg:w-auto
+            lg:mx-0
+            flex
+            justify-center
+            items-center
+          "
 
 >
 
@@ -850,38 +850,36 @@ animate-pulse
 
 
 
-<div
-
-className="
-relative
-z-20
-animate-[float_5s_ease-in-out_infinite]
-hover:scale-105
-transition
-duration-500
-"
-
->
-
-<img
-
-src={overtime}
-
-alt="Employee Overtime System"
-
-className="
-w-[calc(100vw-1rem)]
-max-w-none
-lg:w-full
-lg:max-w-[1400px]
-rounded-[30px]
-object-contain
-drop-shadow-[0_40px_80px_rgba(30,58,138,.35)]
-"
-
-/>
-
-</div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 70 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            animate={{ y: [0, -14, 0] }}
+            whileHover={{ scale: 1.18, rotate: 1.5 }}
+            style={{ transition: "transform 0.7s ease" }}
+            className="relative z-20"
+          >
+            <img
+              src={overtime}
+              alt="Employee Overtime System"
+              className="
+                w-full
+                max-w-none
+                scale-110
+                md:scale-125
+                lg:scale-150
+                lg:w-full
+                lg:max-w-[3000px]
+                xl:max-w-[3500px]
+                origin-center
+                h-auto
+                rounded-[30px]
+                object-contain
+                drop-shadow-[0_50px_100px_rgba(30,58,138,.4)]
+              "
+            />
+          </motion.div>
 
 
 
