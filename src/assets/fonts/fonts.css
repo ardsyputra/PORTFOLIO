@@ -4,6 +4,22 @@
 
 @font-face {
   font-family: "Clash Display";
+  src: url("./ClashDisplay-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Clash Display";
+  src: url("./ClashDisplay-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Clash Display";
   src: url("./ClashDisplay-Semibold.otf") format("opentype");
   font-weight: 600;
   font-style: normal;
@@ -19,33 +35,6 @@
 }
 
 /* ============================= */
-/*            SATOSHI            */
-/* ============================= */
-
-@font-face {
-  font-family: "Satoshi";
-  src: url("./Satoshi-Regular.otf") format("opentype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Satoshi";
-  src: url("./Satoshi-Medium.otf") format("opentype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Satoshi";
-  src: url("./Satoshi-Bold.otf") format("opentype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-/* ============================= */
 /*          SOULRISE             */
 /* ============================= */
 
@@ -55,6 +44,10 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
+}
+
+.font-clash {
+  font-family: "Clash Display", sans-serif;
 }
 
 .font-soulrise {

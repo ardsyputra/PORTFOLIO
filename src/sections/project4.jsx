@@ -1,868 +1,182 @@
 import texture from "../assets/images/texture.avif";
 import blockchain from "../assets/images/blockchain-shipment-genz.svg";
-
-
-export default function Project4(){
-
-
-const styles = `
-
-@keyframes float {
-
-0%,100%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-20px);
-}
-
-}
-
-
-@keyframes spinSlow {
-
-from{
-transform:rotate(0deg);
-}
-
-to{
-transform:rotate(360deg);
-}
-
-}
-
-
-@keyframes pulseGlow {
-
-0%,100%{
-opacity:.3;
-transform:scale(1);
-}
-
-50%{
-opacity:.8;
-transform:scale(1.2);
-}
-
-}
-
-
-@keyframes moveLine {
-
-0%{
-transform:translateX(-30px) rotate(-20deg);
-}
-
-50%{
-transform:translateX(30px) rotate(-20deg);
-}
-
-100%{
-transform:translateX(-30px) rotate(-20deg);
-}
-
-}
-
-`;
-
-
-
-
-
-const project={
-
-
-category:"Blockchain Research Project",
-
-
-description:
-"Membangun sistem validasi integritas data pengiriman barang menggunakan metode Proof of Reserve dengan kombinasi hashing SHA-256, Merkle Tree, dan database terdistribusi untuk memastikan keaslian data.",
-
-
-tags:[
-"Blockchain",
-"SHA-256",
-"Merkle Tree",
-"CouchDB",
-"Python"
-],
-
-
-role:"Blockchain Developer",
-platform:"Research Prototype",
-database:"CouchDB",
-language:"Python",
-
-
-};
-
-
-
-
-
-
-
-return(
-
-
-<section
-
-className="
-relative
-min-h-screen
-bg-[#1E3A8A]
-py-28
-overflow-hidden
-"
-
->
-
-
-<style>
-
-{styles}
-
-</style>
-
-
-
-
-
-{/* TEXTURE */}
-
-
-<div
-
-className="
-absolute
-inset-0
-opacity-[0.18]
-"
-
-style={{
-
-backgroundImage:`url(${texture})`,
-backgroundSize:"280px",
-backgroundRepeat:"repeat"
-
-}}
-
-></div>
-
-
-
-
-
-
-
-
-{/* BACKGROUND GLOW */}
-
-
-
-<div
-
-className="
-absolute
--top-40
--right-40
-w-[650px]
-h-[650px]
-rounded-full
-bg-[#F7F4ED]/10
-blur-3xl
-"
-
-></div>
-
-
-
-
-
-
-<div
-
-className="
-absolute
-left-20
-bottom-20
-w-56
-h-56
-opacity-30
-"
-
-style={{
-
-backgroundImage:
-"radial-gradient(#F7F4ED 2px,transparent 2px)",
-
-backgroundSize:"18px 18px"
-
-}}
-
-></div>
-
-
-
-
-
-
-
-
-
-{/* NUMBER */}
-
-
-
-<div
-
-className="
-absolute
-right-10
-top-0
-text-[260px]
-font-black
-text-[#F7F4ED]/10
-"
-
->
-
-04
-
-</div>
-
-
-
-
-
-
-
-
-
-<div
-
-className="
-relative
-z-10
-max-w-7xl
-mx-auto
-px-6
-"
-
->
-
-
-<div
-
-className="
-grid
-grid-cols-1
-lg:grid-cols-[0.85fr_1.15fr]
-gap-10
-lg:gap-12
-items-center
-"
-
->
-
-
-
-
-
-
-
-
-
-
-{/* LEFT */}
-
-
-
-<div>
-
-
-
-
-<div
-
-className="
-inline-flex
-bg-[#F97316]
-text-white
-px-6
-py-3
-rounded-full
-font-bold
-shadow-xl
-rotate-[-4deg]
-"
-
->
-
-✦ Research Project
-
-</div>
-
-
-
-
-
-
-<p
-
-className="
-mt-10
-uppercase
-tracking-[0.4em]
-text-sm
-font-semibold
-text-[#F7F4ED]/60
-"
-
->
-
-{project.category}
-
-</p>
-
-
-
-
-
-
-<h1
-
-className="
-mt-5
-text-6xl
-md:text-7xl
-font-black
-leading-none
-text-[#F7F4ED]
-drop-shadow-xl
-"
-
->
-
-Blockchain
-
-<br/>
-
-Shipment
-
-<br/>
-
-Security
-
-</h1>
-
-
-
-
-
-
-
-
-<div
-
-className="
-flex
-flex-wrap
-gap-3
-mt-10
-"
-
->
-
-
-{
-
-project.tags.map(tag=>(
-
-
-<span
-
-key={tag}
-
-className="
-bg-[#F7F4ED]
-text-[#1E3A8A]
-px-5
-py-2
-rounded-full
-font-bold
-shadow-xl
-"
-
->
-
-{tag}
-
-</span>
-
-
-))
-
-
-}
-
-
-</div>
-
-
-
-
-
-
-
-
-<p
-
-className="
-mt-10
-text-lg
-leading-8
-text-[#F7F4ED]/80
-max-w-xl
-"
-
->
-
-{project.description}
-
-</p>
-
-
-
-
-
-
-
-
-{/* INFO */}
-
-
-
-<div
-
-className="
-mt-10
-grid
-grid-cols-2
-gap-6
-"
-
->
-
-
-{
-
-
-[
-
-["Role",project.role],
-
-["Database",project.database],
-
-["Language",project.language],
-
-
-].map(item=>(
-
-
-<div
-
-key={item[0]}
-
-className="
-bg-white/90
-backdrop-blur-xl
-rounded-[30px]
-p-6
-shadow-[0_30px_70px_rgba(0,0,0,.35)]
-hover:-translate-y-3
-transition
-"
-
->
-
-
-<p
-
-className="
-text-gray-500
-text-sm
-"
-
->
-
-{item[0]}
-
-</p>
-
-
-
-<h3
-
-className="
-mt-2
-font-black
-text-[#1E3A8A]
-"
-
->
-
-{item[1]}
-
-</h3>
-
-
-
-</div>
-
-
-))
-
-
-}
-
-
-
-</div>
-
-
-
-
-
-
-
-<a
-
-href="https://github.com/ardsyputra/Blockchain"
-
-className="
-inline-flex
-relative
-z-10
-mt-10
-bg-[#F97316]
-text-white
-px-10
-py-4
-rounded-full
-font-black
-shadow-xl
-hover:scale-105
-transition
-"
-
->
-
-View Repository →
-
-</a>
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-{/* RIGHT */}
-
-
-
-<div
-
-className="
-relative
- w-[calc(100%+3rem)]
- -mx-6
- lg:mx-0
- lg:w-auto
-flex
-justify-center
-items-center
-"
-
->
-
-
-
-
-
-
-
-<div
-
-className="
-absolute
-pointer-events-none
-w-[650px]
-h-[650px]
-rounded-full
-border-[3px]
-border-[#F7F4ED]/20
-animate-[spinSlow_25s_linear_infinite]
-"
-
-></div>
-
-
-
-
-
-
-
-<div
-
-className="
-absolute
-pointer-events-none
-w-[300px]
-h-[300px]
-rounded-full
-bg-[#F97316]/30
-blur-3xl
-animate-[pulseGlow_4s_ease-in-out_infinite]
-"
-
-></div>
-
-
-
-
-
-
-
-<div
-
-className="
-absolute
-pointer-events-none
-w-[500px]
-h-[2px]
-bg-[#F7F4ED]/20
-animate-[moveLine_6s_ease-in-out_infinite]
-"
-
-></div>
-
-
-
-
-
-
-
-
-<div
-
-className="
-absolute
-top-10
-left-0
-bg-[#F97316]
-text-white
-px-7
-py-3
-rounded-full
-shadow-2xl
-rotate-[-12deg]
-animate-[float_3s_ease-in-out_infinite]
-hidden
-sm:block
-z-30
-"
-
->
-
-⛓ Blockchain System
-
-</div>
-
-
-
-
-
-
-
-
-<img
-
-src={blockchain}
-
-alt="Blockchain"
-
-className="
-relative
-z-20
-w-[calc(100vw-1rem)]
-max-w-none
-lg:w-full
-lg:max-w-[1200px]
-object-contain
-drop-shadow-[0_50px_100px_rgba(0,0,0,.55)]
-animate-[float_5s_ease-in-out_infinite]
-hover:scale-110
-transition
-duration-700
-"
-
-/>
-
-
-
-
-
-
-
-
-
-<div
-
-className="
-absolute
-bottom-20
-left-[-40px]
-bg-white/90
-backdrop-blur-xl
-rounded-[35px]
-px-8
-py-6
-shadow-[0_30px_80px_rgba(0,0,0,.35)]
-rotate-[-8deg]
-animate-[float_4s_ease-in-out_infinite]
-hidden
-sm:block
-z-30
-"
-
->
-
-
-<p className="text-gray-500">
-
-Security
-
-</p>
-
-
-<h3 className="
-text-xl
-font-black
-text-[#1E3A8A]
-">
-
-SHA-256 Hash
-
-</h3>
-
-
-</div>
-
-
-
-
-
-
-
-
-<div
-
-className="
-absolute
-top-40
-right-[-30px]
-bg-[#F97316]
-text-white
-rounded-[35px]
-px-7
-py-5
-shadow-2xl
-rotate-6
-animate-[float_6s_ease-in-out_infinite]
-hidden
-sm:block
-z-30
-"
-
->
-
-
-<h3 className="
-text-3xl
-font-black
-">
-
-PoR
-
-</h3>
-
-
-<p>
-
-Proof of Reserve
-
-</p>
-
-
-</div>
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-{/* FEATURE */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-
-
-</section>
-
-
-);
-
-
+import { motion, useReducedMotion } from "framer-motion";
+import { useTheme } from "../context/ThemeContext";
+import TiltCard from "../components/TiltCard";
+import { GitBranch, ArrowUpRight, Sparkles } from "lucide-react";
+
+export default function Project4() {
+  const { theme } = useTheme();
+  const reduceMotion = useReducedMotion();
+  const isDark = theme === "dark";
+
+  const project = {
+    category: "Blockchain Security Prototype",
+    title: "Proof of Reserve Shipment",
+    description:
+      "Membangun sistem validasi integritas data pengiriman logistik menggunakan metode Proof of Reserve dengan kombinasi cryptographic hashing SHA-256, struktur data Merkle Tree, dan database CouchDB untuk menjamin data anti-tamper.",
+    tags: ["Blockchain", "SHA-256", "Merkle Tree", "CouchDB", "Python"],
+    role: "Blockchain Developer",
+    platform: "Research Prototype",
+    database: "CouchDB",
+    language: "Python",
+  };
+
+  return (
+    <section
+      id="project-03"
+      className={`relative min-h-screen py-28 overflow-hidden transition-colors duration-500 cyber-grid ${
+        isDark ? "bg-[#090d16] text-[#f8fafc]" : "bg-[#f8fafc] text-[#0f172a]"
+      }`}
+    >
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.03]"
+        style={{ backgroundImage: `url(${texture})`, backgroundSize: "240px", backgroundRepeat: "repeat" }}
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-16 items-center">
+          {/* Left Details */}
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="space-y-6"
+          >
+            <div className="inline-flex items-center gap-2 bg-[#f97316] text-white px-5 py-2 rounded-full font-black text-xs uppercase tracking-wider shadow-lg">
+              <Sparkles size={14} />
+              <span>SECURITY RESEARCH ✦ 03</span>
+            </div>
+
+            <p className="text-xs font-bold uppercase tracking-[0.35em] text-[#2563eb]">
+              {project.category}
+            </p>
+
+            <h1 className="text-4xl sm:text-6xl font-black font-clash leading-none tracking-tight">
+              Blockchain<br />
+              <span className="text-[#f97316]">Shipment</span><br />
+              Security
+            </h1>
+
+            <div className="flex flex-wrap gap-2 pt-2">
+              {project.tags.map((tag, tIdx) => (
+                <motion.span
+                  key={tag}
+                  initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.45 + tIdx * 0.06,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  className={`rounded-full px-4 py-1.5 text-xs font-bold border transition-colors ${
+                    isDark
+                      ? "bg-slate-900 border-white/10 text-amber-400"
+                      : "bg-white border-orange-200 text-orange-700 shadow-sm"
+                  }`}
+                >
+                  {tag}
+                </motion.span>
+              ))}
+            </div>
+
+            <p className={`text-base sm:text-lg leading-relaxed ${isDark ? "text-slate-300" : "text-slate-600"}`}>
+              {project.description}
+            </p>
+
+            {/* Meta Cards */}
+            <div className="grid grid-cols-3 gap-3 pt-2">
+              {[
+                ["Role", project.role],
+                ["Database", project.database],
+                ["Language", project.language],
+              ].map(([label, value]) => (
+                <div
+                  key={label}
+                  className={`rounded-[22px] p-4 border backdrop-blur-md ${
+                    isDark
+                      ? "bg-slate-900/60 border-white/10"
+                      : "bg-white/80 border-slate-200 shadow-sm"
+                  }`}
+                >
+                  <p className={`text-[10px] font-bold uppercase tracking-widest ${isDark ? "text-slate-400" : "text-slate-500"}`}>
+                    {label}
+                  </p>
+                  <h4 className="mt-1 font-black text-xs sm:text-sm text-[#f97316]">{value}</h4>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-4">
+              <motion.a
+                href="https://github.com/ardsyputra/Blockchain"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.04, y: -2 }}
+                whileTap={{ scale: 0.96 }}
+                className="genz-btn inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-xs font-black uppercase tracking-wider text-white bg-gradient-to-r from-blue-600 to-indigo-600 shadow-[0_15px_30px_rgba(37,99,235,0.3)] cursor-interactive"
+              >
+                <GitBranch size={16} />
+                <span>Lihat Repository GitHub</span>
+                <ArrowUpRight size={16} />
+              </motion.a>
+            </div>
+          </motion.div>
+
+          {/* Right 3D Visual Showcase */}
+          <TiltCard
+            maxTilt={12}
+            className={`relative flex items-center justify-center p-8 sm:p-12 rounded-[40px] border backdrop-blur-2xl transition-all shadow-2xl ${
+              isDark
+                ? "bg-slate-900/60 border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.6)]"
+                : "bg-gradient-to-br from-amber-50 to-orange-50 border-slate-200/90 shadow-xl"
+            }`}
+          >
+            {/* Gen Z Floating Stickers with Smooth Float */}
+            <motion.div
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              whileHover={{ scale: 1.08, y: -4 }}
+              className="cursor-interactive absolute -top-3 -left-3 bg-[#2563eb] text-white px-5 py-2.5 rounded-full shadow-xl rotate-[-8deg] font-black text-xs z-30 transition-shadow hover:shadow-2xl"
+            >
+              SHA-256 Hashing 🔒
+            </motion.div>
+
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+              whileHover={{ scale: 1.08, y: -4 }}
+              className={`cursor-interactive absolute bottom-6 -right-3 rounded-2xl px-5 py-3 shadow-xl rotate-[6deg] font-black text-xs z-30 border transition-shadow hover:shadow-2xl ${
+                isDark ? "bg-slate-800 border-white/10 text-amber-400" : "bg-white border-slate-200 text-orange-600"
+              }`}
+            >
+              Merkle Tree Integrity ✦
+            </motion.div>
+
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+              className="relative z-10 w-full flex items-center justify-center"
+            >
+              <motion.div
+                initial={reduceMotion ? false : { opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="image-reveal"
+              >
+                <img
+                  src={blockchain}
+                  alt="Blockchain Security Shipment Architecture"
+                  className="w-full max-w-[500px] h-auto object-contain drop-shadow-[0_25px_50px_rgba(249,115,22,0.25)]"
+                />
+              </motion.div>
+            </motion.div>
+          </TiltCard>
+        </div>
+      </div>
+    </section>
+  );
 }

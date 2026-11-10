@@ -1,1263 +1,182 @@
 import texture from "../assets/images/texture.avif";
 import overtime from "../assets/images/employee-overtime-genz.svg";
-import { motion } from "framer-motion";
-
-
-export default function Project3(){
-
-
-const project = {
-
-
-category:"Full Stack Development",
-
-
-description:
-"Membangun sistem pengajuan lembur karyawan berbasis web untuk membantu proses pengajuan, monitoring, dan pengelolaan data lembur secara lebih efektif dan terstruktur.",
-
-
-
-tags:[
-"Laravel",
-"PHP",
-"MySQL",
-"Bootstrap",
-"GitHub"
-],
-
-
-
-role:"Full Stack Developer",
-framework:"Laravel",
-database:"MySQL",
-platform:"Web Application",
-
-
-
-};
-
-
-
-
-
-return(
-
-
-<section
-
-className="
-relative
-min-h-screen
-bg-[#F7F4ED]
-py-28
-overflow-hidden
-"
-
->
-
-
-
-
-
-
-
-{/* ================= TEXTURE ================= */}
-
-
-
-<div
-
-className="
-absolute
-inset-0
-opacity-[0.18]
-pointer-events-none
-"
-
-style={{
-
-backgroundImage:`url(${texture})`,
-backgroundSize:"280px",
-backgroundRepeat:"repeat"
-
-}}
-
->
-
-</div>
-
-
-
-
-
-
-
-
-
-{/* ================= BACKGROUND ELEMENT ================= */}
-
-
-
-<div
-
-className="
-absolute
--top-40
--right-40
-w-[650px]
-h-[650px]
-rounded-full
-bg-[#1E3A8A]/10
-blur-3xl
-"
-
->
-
-</div>
-
-
-
-
-
-
-
-{/* DOT PATTERN */}
-
-
-
-<div
-
-className="
-absolute
-left-20
-bottom-20
-w-60
-h-60
-opacity-20
-"
-
-style={{
-
-backgroundImage:
-"radial-gradient(#1E3A8A 2px,transparent 2px)",
-
-backgroundSize:"18px 18px"
-
-}}
-
->
-
-</div>
-
-
-
-
-
-
-
-
-
-{/* BIG NUMBER */}
-
-
-
-<div
-
-className="
-absolute
-right-10
-top-0
-text-[260px]
-font-black
-text-[#1E3A8A]/5
-select-none
-"
-
->
-
-03
-
-</div>
-
-
-
-
-
-
-
-
-
-{/* ORANGE SHAPE */}
-
-
-
-<div
-
-className="
-absolute
-left-10
-top-40
-w-24
-h-24
-rounded-full
-bg-[#F97316]
-opacity-80
-animate-pulse
-"
-
->
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-<div
-
-className="
-relative
-z-10
-max-w-7xl
-mx-auto
-px-6
-"
-
->
-
-
-
-
-
-
-
-<div
-
-className="
-            grid
-            grid-cols-1
-            lg:grid-cols-[0.5fr_1.5fr]
-            gap-10
-            lg:gap-14
-            items-center
-          "
-
->
-
-
-
-
-
-
-
-
-
-{/* ================= LEFT CONTENT ================= */}
-
-
-
-<div>
-
-
-
-
-
-
-
-
-
-{/* BADGE */}
-
-
-
-<div
-
-className="
-inline-flex
-bg-[#1E3A8A]
-text-[#F7F4ED]
-px-6
-py-3
-rounded-full
-shadow-xl
-rotate-[-4deg]
-font-bold
-"
-
->
-
-✦ Case Study
-
-</div>
-
-
-
-
-
-
-
-
-
-<p
-
-className="
-mt-10
-uppercase
-tracking-[0.4em]
-text-sm
-font-semibold
-text-[#1E3A8A]/60
-"
-
->
-
-{project.category}
-
-</p>
-
-
-
-
-
-
-
-
-
-<h1
-
-className="
-mt-5
-text-6xl
-md:text-7xl
-font-black
-leading-none
-text-[#1E3A8A]
-drop-shadow-xl
-"
-
->
-
-Employee
-
-<br/>
-
-Overtime
-
-<br/>
-
-System
-
-</h1>
-
-
-
-
-
-
-
-
-
-{/* TAG */}
-
-
-
-<div
-
-className="
-flex
-flex-wrap
-gap-3
-mt-10
-"
-
->
-
-
-{
-
-project.tags.map(tag=>(
-
-
-<span
-
-key={tag}
-
-className="
-bg-[#1E3A8A]
-text-[#F7F4ED]
-px-5
-py-2
-rounded-full
-font-bold
-shadow-lg
-hover:-translate-y-1
-transition
-"
-
->
-
-{tag}
-
-</span>
-
-
-))
-
-
-}
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-{/* DESCRIPTION */}
-
-
-
-<p
-
-className="
-mt-10
-text-lg
-leading-8
-text-gray-700
-max-w-xl
-"
-
->
-
-{project.description}
-
-</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* INFO GRID */}
-
-
-
-<div
-
-className="
-mt-10
-grid
-grid-cols-1
-sm:grid-cols-2
-gap-6
-"
-
->
-
-
-
-
-
-
-
-
-<div
-
-className="
-bg-[#1E3A8A]
-text-[#F7F4ED]
-rounded-[30px]
-p-6
-shadow-xl
-hover:-translate-y-2
-transition
-"
-
->
-
-
-<p
-
-className="
-text-white/60
-text-sm
-"
-
->
-
-Role
-
-</p>
-
-
-<h3
-
-className="
-mt-2
-font-bold
-"
-
->
-
-{project.role}
-
-</h3>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div
-
-className="
-bg-[#1E3A8A]
-text-[#F7F4ED]
-rounded-[30px]
-p-6
-shadow-xl
-hover:-translate-y-2
-transition
-"
-
->
-
-
-<p
-
-className="
-text-white/60
-text-sm
-"
-
->
-
-Framework
-
-</p>
-
-
-<h3
-
-className="
-mt-2
-font-bold
-"
-
->
-
-{project.framework}
-
-</h3>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div
-
-className="
-bg-[#1E3A8A]
-text-[#F7F4ED]
-rounded-[30px]
-p-6
-shadow-xl
-hover:-translate-y-2
-transition
-"
-
->
-
-
-<p
-
-className="
-text-white/60
-text-sm
-"
-
->
-
-Database
-
-</p>
-
-
-<h3
-
-className="
-mt-2
-font-bold
-"
-
->
-
-{project.database}
-
-</h3>
-
-</div>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* BUTTON */}
-
-
-
-<a
-
-href="https://github.com/dachi01-afk/Overtime-Request-System"
-
-className="
-inline-flex
-relative
-z-10
-mt-10
-bg-[#F97316]
-text-white
-px-10
-py-4
-rounded-full
-font-bold
-shadow-xl
-hover:scale-105
-transition
-"
-
->
-
-View Repository →
-
-</a>
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-{/* ================= RIGHT SHOWCASE ================= */}
-
-
-
-<div
-
-          className="
-            relative
-            w-full
-            lg:w-auto
-            lg:mx-0
-            flex
-            justify-center
-            items-center
-          "
-
->
-
-
-
-
-
-
-
-
-
-{/* BIG GLOW */}
-
-
-
-<div
-
-className="
-absolute
-pointer-events-none
-w-[750px]
-h-[750px]
-rounded-full
-bg-[#1E3A8A]/10
-blur-3xl
-"
-
->
-
-</div>
-
-
-
-
-
-
-
-
-
-{/* CIRCLE DECORATION */}
-
-
-
-<div
-
-className="
-absolute
-pointer-events-none
-w-[620px]
-h-[620px]
-rounded-full
-border-[3px]
-border-[#1E3A8A]/10
-"
-
->
-
-</div>
-
-
-
-
-
-
-
-
-
-{/* GRID PATTERN */}
-
-
-
-<div
-
-className="
-absolute
-pointer-events-none
-right-[-40px]
-top-20
-w-72
-h-72
-opacity-20
-"
-
-style={{
-
-
-backgroundImage:
-"linear-gradient(#1E3A8A 1px,transparent 1px),linear-gradient(90deg,#1E3A8A 1px,transparent 1px)",
-
-
-backgroundSize:"25px 25px"
-
-
-}}
-
->
-
-</div>
-
-
-
-
-
-
-
-
-
-{/* ORANGE CIRCLE */}
-
-
-
-<div
-
-className="
-absolute
-pointer-events-none
-left-20
-bottom-10
-w-28
-h-28
-rounded-full
-bg-[#F97316]
-opacity-90
-animate-pulse
-"
-
->
-
-</div>
-
-
-
-
-
-
-
-
-
-{/* WEBSITE IMAGE */}
-
-
-
+import { motion, useReducedMotion } from "framer-motion";
+import { useTheme } from "../context/ThemeContext";
+import TiltCard from "../components/TiltCard";
+import { GitBranch, ArrowUpRight, Sparkles } from "lucide-react";
+
+export default function Project3() {
+  const { theme } = useTheme();
+  const reduceMotion = useReducedMotion();
+  const isDark = theme === "dark";
+
+  const project = {
+    category: "Full Stack HR Management",
+    title: "Employee Overtime System",
+    description:
+      "Membangun sistem pengajuan lembur karyawan berbasis web untuk membantu proses pengajuan penugasan, monitoring real-time, approval berjenjang, dan manajemen rekap data lembur secara transparan.",
+    tags: ["Laravel", "PHP", "MySQL", "Bootstrap", "GitHub"],
+    role: "Full Stack Developer",
+    framework: "Laravel",
+    database: "MySQL",
+    platform: "Web Application",
+  };
+
+  return (
+    <section
+      id="project-02"
+      className={`relative min-h-screen py-28 overflow-hidden transition-colors duration-500 cyber-grid ${
+        isDark ? "bg-[#090d16] text-[#f8fafc]" : "bg-[#f8fafc] text-[#0f172a]"
+      }`}
+    >
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.03]"
+        style={{ backgroundImage: `url(${texture})`, backgroundSize: "280px", backgroundRepeat: "repeat" }}
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-16 items-center">
+          {/* Left Details */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 70 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            animate={{ y: [0, -14, 0] }}
-            whileHover={{ scale: 1.18, rotate: 1.5 }}
-            style={{ transition: "transform 0.7s ease" }}
-            className="relative z-20"
+            initial={reduceMotion ? false : { opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="space-y-6"
           >
-            <img
-              src={overtime}
-              alt="Employee Overtime System"
-              className="
-                w-full
-                max-w-none
-                scale-110
-                md:scale-125
-                lg:scale-150
-                lg:w-full
-                lg:max-w-[3000px]
-                xl:max-w-[3500px]
-                origin-center
-                h-auto
-                rounded-[30px]
-                object-contain
-                drop-shadow-[0_50px_100px_rgba(30,58,138,.4)]
-              "
-            />
+            <div className="inline-flex items-center gap-2 bg-[#2563eb] text-white px-5 py-2 rounded-full font-black text-xs uppercase tracking-wider shadow-lg">
+              <Sparkles size={14} className="text-amber-300" />
+              <span>CASE STUDY ✦ 02</span>
+            </div>
+
+            <p className="text-xs font-bold uppercase tracking-[0.35em] text-[#2563eb]">
+              {project.category}
+            </p>
+
+            <h1 className="text-4xl sm:text-6xl font-black font-clash leading-none tracking-tight">
+              Employee<br />
+              <span className="text-[#2563eb]">Overtime</span><br />
+              System
+            </h1>
+
+            <div className="flex flex-wrap gap-2 pt-2">
+              {project.tags.map((tag, tIdx) => (
+                <motion.span
+                  key={tag}
+                  initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.45 + tIdx * 0.06,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  className={`rounded-full px-4 py-1.5 text-xs font-bold border transition-colors ${
+                    isDark
+                      ? "bg-slate-900 border-white/10 text-cyan-400"
+                      : "bg-white border-blue-200 text-blue-700 shadow-sm"
+                  }`}
+                >
+                  {tag}
+                </motion.span>
+              ))}
+            </div>
+
+            <p className={`text-base sm:text-lg leading-relaxed ${isDark ? "text-slate-300" : "text-slate-600"}`}>
+              {project.description}
+            </p>
+
+            {/* Meta Cards */}
+            <div className="grid grid-cols-3 gap-3 pt-2">
+              {[
+                ["Role", project.role],
+                ["Framework", project.framework],
+                ["Database", project.database],
+              ].map(([label, value]) => (
+                <div
+                  key={label}
+                  className={`rounded-[22px] p-4 border backdrop-blur-md ${
+                    isDark
+                      ? "bg-slate-900/60 border-white/10"
+                      : "bg-white/80 border-slate-200 shadow-sm"
+                  }`}
+                >
+                  <p className={`text-[10px] font-bold uppercase tracking-widest ${isDark ? "text-slate-400" : "text-slate-500"}`}>
+                    {label}
+                  </p>
+                  <h4 className="mt-1 font-black text-xs sm:text-sm text-[#2563eb]">{value}</h4>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-4">
+              <motion.a
+                href="https://github.com/dachi01-afk/Overtime-Request-System"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.04, y: -2 }}
+                whileTap={{ scale: 0.96 }}
+                className="genz-btn inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-xs font-black uppercase tracking-wider text-white bg-gradient-to-r from-orange-500 to-amber-500 shadow-[0_15px_30px_rgba(249,115,22,0.3)] cursor-interactive"
+              >
+                <GitBranch size={16} />
+                <span>Lihat Repository GitHub</span>
+                <ArrowUpRight size={16} />
+              </motion.a>
+            </div>
           </motion.div>
 
-
-
-
-
-
-
-
-
-{/* LARAVEL BADGE */}
-
-
-
-<div
-
-className="
-absolute
-top-14
-left-[-40px]
-bg-[#F97316]
-text-white
-px-8
-py-4
-rounded-full
-shadow-2xl
-rotate-[-12deg]
-font-black
-hidden
-sm:block
-z-30
-animate-[float_4s_ease-in-out_infinite]
-"
-
->
-
-Laravel ⚡
-
-</div>
-
-
-
-
-
-
-
-
-
-{/* DATABASE CARD */}
-
-
-
-<div
-
-className="
-absolute
-top-48
-right-[-50px]
-bg-[#1E3A8A]
-text-white
-rounded-[35px]
-px-8
-py-6
-shadow-2xl
-rotate-6
-hidden
-sm:block
-z-30
-"
-
->
-
-
-<p
-
-className="
-text-xs
-text-white/60
-uppercase
-tracking-widest
-"
-
->
-
-Database
-
-</p>
-
-
-<h3
-
-className="
-text-3xl
-font-black
-mt-2
-"
-
->
-
-MySQL
-
-</h3>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-{/* TECHNOLOGY CARD */}
-
-
-
-<div
-
-className="
-absolute
-bottom-28
-left-[-50px]
-bg-white
-rounded-[35px]
-p-7
-shadow-2xl
-rotate-[-8deg]
-hidden
-sm:block
-z-30
-"
-
->
-
-
-<p
-
-className="
-text-xs
-text-gray-400
-uppercase
-tracking-widest
-"
-
->
-
-Technology
-
-</p>
-
-
-
-<h3
-
-className="
-text-xl
-font-black
-text-[#1E3A8A]
-mt-2
-"
-
->
-
-PHP + Laravel
-
-</h3>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-{/* GITHUB CARD */}
-
-
-
-<div
-
-className="
-absolute
-bottom-10
-right-[-30px]
-bg-[#F7F4ED]
-rounded-[30px]
-px-8
-py-5
-shadow-2xl
-rotate-6
-hidden
-sm:block
-z-30
-"
-
->
-
-
-<p
-
-className="
-text-sm
-text-gray-500
-"
-
->
-
-Repository
-
-</p>
-
-
-
-<h3
-
-className="
-text-2xl
-font-black
-text-[#1E3A8A]
-"
-
->
-
-GitHub
-
-</h3>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-{/* CODE DECOR */}
-
-
-
-<div
-
-className="
-absolute
-top-[-40px]
-right-20
-bg-white
-rounded-full
-w-20
-h-20
-shadow-xl
-flex
-items-center
-justify-center
-text-3xl
-hidden
-sm:block
-z-30
-"
-
->
-
-{"</>"}
-
-</div>
-
-
-
-
-
-
-
-
-
-{/* LINE DECOR */}
-
-
-
-<div
-
-className="
-absolute
-left-[-120px]
-top-36
-w-44
-h-[4px]
-bg-[#F97316]
-rotate-[-20deg]
-"
-
->
-
-</div>
-
-
-
-
-
-
-
-
-
-{/* SMALL LABEL */}
-
-
-
-<div
-
-className="
-absolute
-top-72
-left-[-80px]
-bg-[#1E3A8A]
-text-white
-px-6
-py-3
-rounded-full
-shadow-xl
-rotate-[-6deg]
-font-bold
-hidden
-sm:block
-z-30
-"
-
->
-
-Web Application
-
-</div>
-
-
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-</section>
-
-
-);
-
+          {/* Right 3D Visual Showcase */}
+          <TiltCard
+            maxTilt={12}
+            className={`relative flex items-center justify-center p-8 sm:p-12 rounded-[40px] border backdrop-blur-2xl transition-all shadow-2xl ${
+              isDark
+                ? "bg-slate-900/60 border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.6)]"
+                : "bg-gradient-to-br from-blue-50 to-indigo-50 border-slate-200/90 shadow-xl"
+            }`}
+          >
+            {/* Gen Z Floating Stickers with Smooth Float */}
+            <motion.div
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              whileHover={{ scale: 1.08, y: -4 }}
+              className="cursor-interactive absolute -top-3 -left-3 bg-[#f97316] text-white px-5 py-2.5 rounded-full shadow-xl rotate-[-8deg] font-black text-xs z-30 transition-shadow hover:shadow-2xl"
+            >
+              Laravel &amp; MySQL ⚡
+            </motion.div>
+
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+              whileHover={{ scale: 1.08, y: -4 }}
+              className={`cursor-interactive absolute bottom-6 -right-3 rounded-2xl px-5 py-3 shadow-xl rotate-[6deg] font-black text-xs z-30 border transition-shadow hover:shadow-2xl ${
+                isDark ? "bg-slate-800 border-white/10 text-cyan-400" : "bg-white border-slate-200 text-blue-600"
+              }`}
+            >
+              Multi-Role Approval Flow ✦
+            </motion.div>
+
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="relative z-10 w-full flex items-center justify-center"
+            >
+              <motion.div
+                initial={reduceMotion ? false : { opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="image-reveal"
+              >
+                <img
+                  src={overtime}
+                  alt="Employee Overtime System UI"
+                  className="w-full max-w-[500px] h-auto object-contain drop-shadow-[0_25px_50px_rgba(37,99,235,0.25)]"
+                />
+              </motion.div>
+            </motion.div>
+          </TiltCard>
+        </div>
+      </div>
+    </section>
+  );
 }

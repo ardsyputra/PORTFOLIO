@@ -1,213 +1,429 @@
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ArrowUpRight, ChevronLeft, ChevronRight, GitBranch, Globe2, Lightbulb, Monitor, MonitorPlay, Smartphone, Workflow } from "lucide-react";
+import {
+  ArrowUpRight,
+  ChevronLeft,
+  ChevronRight,
+  GitBranch,
+  Globe2,
+  Lightbulb,
+  Monitor,
+  MonitorPlay,
+  Smartphone,
+  Workflow,
+  Sparkles,
+} from "lucide-react";
 import texture from "../assets/images/texture.avif";
+import { useTheme } from "../context/ThemeContext";
+import TiltCard from "./TiltCard";
 
-export default function ProjectStory({ number, name, category, description, screenshot, screenshots, previewGroups, liveUrl, repositoryUrl, learnings, process }) {
-  const [previewMode, setPreviewMode] = useState(previewGroups ? "desktop" : "default");
-  const previewImages = screenshots?.length ? screenshots : screenshot ? [screenshot] : [];
-  const activeGroup = previewGroups?.[previewMode] ?? previewImages;
-  const previewItems = activeGroup.map((item) => typeof item === "string" ? { src: item, label: "" } : item);
-  const [activePreview, setActivePreview] = useState(0);
+export default function ProjectStory({
+  number,
+  name,
+  category,
+  description,
+  screenshot,
+  screenshots,
+  previewGroups,
+  liveUrl,
+  repositoryUrl,
+  learnings = [],
+  process = [],
+}) {
+  const { theme } = useTheme();
   const reduceMotion = useReducedMotion();
-  const showPrevious = () => setActivePreview((current) => (current - 1 + previewItems.length) % previewItems.length);
-  const showNext = () => setActivePreview((current) => (current + 1) % previewItems.length);
+  const isDark = theme === "dark";
+
+  const previewImages = screenshots?.length ? screenshots : screenshot ? [screenshot] : [];
+  const initialMode = previewGroups ? "desktop" : "default";
+  const [previewMode, setPreviewMode] = useState(initialMode);
+  const activeGroup = previewGroups ? previewGroups[previewMode] || [] : previewImages;
+  const previewItems = activeGroup.map((item) =>
+    typeof item === "string" ? { src: item, label: "" } : item
+  );
+
+  // Directional smooth slide state
+  const [[page, direction], setPage] = useState([0, 0]);
+  const activePreview =
+    previewItems.length > 0
+      ? ((page % previewItems.length) + previewItems.length) % previewItems.length
+      : 0;
+
+  const paginate = (newDirection) => {
+    setPage(([curr]) => [curr + newDirection, newDirection]);
+  };
+
+  const goToIndex = (index) => {
+    const dir = index > activePreview ? 1 : -1;
+    setPage([index, dir]);
+  };
+
   const changePreviewMode = (mode) => {
     setPreviewMode(mode);
-    setActivePreview(0);
+    setPage([0, 0]);
+  };
+
+  const slideVariants = {
+    enter: (dir) => ({
+      x: dir > 0 ? 70 : dir < 0 ? -70 : 0,
+      opacity: 0,
+      scale: 0.96,
+      filter: "blur(6px)",
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1,
+      scale: 1,
+      filter: "blur(0px)",
+      transition: {
+        x: { type: "spring", stiffness: 300, damping: 26 },
+        opacity: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
+        scale: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
+        filter: { duration: 0.35 },
+      },
+    },
+    exit: (dir) => ({
+      zIndex: 0,
+      x: dir < 0 ? 70 : dir > 0 ? -70 : 0,
+      opacity: 0,
+      scale: 0.96,
+      filter: "blur(6px)",
+      transition: {
+        x: { type: "spring", stiffness: 300, damping: 26 },
+        opacity: { duration: 0.28 },
+        scale: { duration: 0.28 },
+        filter: { duration: 0.28 },
+      },
+    }),
   };
 
   return (
-    <section id={`project-${number}`} className="relative overflow-hidden bg-[#F2EFE6] py-24 text-[#171717] scroll-mt-24">
+    <section
+      id={`project-${number}`}
+      className={`relative overflow-hidden py-24 scroll-mt-24 transition-colors duration-500 cyber-grid ${
+        isDark ? "bg-[#090d16] text-[#f8fafc]" : "bg-[#f8fafc] text-[#0f172a]"
+      }`}
+    >
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.10]"
+        className="pointer-events-none absolute inset-0 opacity-[0.03]"
         style={{ backgroundImage: `url(${texture})`, backgroundSize: "280px", backgroundRepeat: "repeat" }}
       />
-      <div className="absolute inset-x-0 top-0 h-px bg-[#2451A6]/20" />
-      <div className="mx-auto max-w-7xl px-6">
+      <div className={`absolute inset-x-0 top-0 h-px ${isDark ? "bg-white/10" : "bg-slate-200"}`} />
+
+      <div className="mx-auto max-w-7xl px-6 relative z-10">
+        {/* Section Header */}
         <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 30 }}
-          whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7 }}
           className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between"
         >
-          <div>
-            <p className="text-xs font-black uppercase tracking-[0.32em] text-[#2451A6]/55">{number} / Project Story</p>
-            <h2 className="mt-3 text-4xl font-black text-[#2451A6] md:text-6xl">{name}</h2>
+          <div className="flex flex-col gap-3">
+            <motion.div
+              initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.05 }}
+              className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.32em] text-[#2563eb]"
+            >
+              <Sparkles size={14} className="text-[#f97316]" />
+              <span>{number} / PROJECT DEEP DIVE</span>
+            </motion.div>
+            <motion.h2
+              initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55, delay: 0.15 }}
+              className="mt-1 text-4xl sm:text-6xl font-black font-clash tracking-tight"
+            >
+              {name}
+            </motion.h2>
           </div>
-          <span className="w-fit rounded-full border border-[#2451A6]/15 bg-white px-5 py-2 text-xs font-black uppercase tracking-[0.16em] text-[#2451A6]">
+          <motion.span
+            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className={`w-fit rounded-full px-5 py-2 text-xs font-black uppercase tracking-wider border shadow-sm ${
+              isDark
+                ? "bg-slate-900 border-white/15 text-blue-400"
+                : "bg-white border-slate-200 text-blue-700"
+            }`}
+          >
             {category}
-          </span>
+          </motion.span>
         </motion.div>
 
-        <div className="grid gap-6 lg:grid-cols-[1.25fr_.75fr]">
+        {/* Story Grid */}
+        <div className="grid gap-8 lg:grid-cols-[1.28fr_.72fr]">
+          {/* Main Visual & Documentation Panel */}
           <motion.article
-            initial={reduceMotion ? false : { opacity: 0, x: -50 }}
-            whileInView={reduceMotion ? undefined : { opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-            className="rounded-[32px] border border-[#2451A6]/10 bg-white p-5 shadow-[0_24px_70px_rgba(36,81,166,.10)] md:p-7"
+            initial={reduceMotion ? false : { opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.75 }}
+            className={`rounded-[32px] border p-6 sm:p-8 backdrop-blur-xl transition-all shadow-xl ${
+              isDark ? "bg-slate-900/60 border-white/10" : "bg-white/85 border-slate-200"
+            }`}
           >
-            <div className="flex items-center gap-3 text-[#F97316]">
-              <MonitorPlay size={22} />
-              <p className="text-xs font-black uppercase tracking-[0.24em]">Tentang Project</p>
-            </div>
-            <h3 className="mt-5 text-3xl font-black text-[#2451A6] md:text-4xl">Pengenalan</h3>
-            <p className="mt-5 max-w-2xl text-base leading-8 text-[#171717]/65 md:text-lg">{description}</p>
-
-            {previewGroups && (
-              <div className="mt-6 flex w-fit rounded-full border border-[#2451A6]/10 bg-white p-1.5 shadow-sm" aria-label="Mode tampilan dokumentasi">
-                <button
-                  type="button"
-                  onClick={() => changePreviewMode("desktop")}
-                  aria-pressed={previewMode === "desktop"}
-                  className={`flex items-center gap-2 rounded-full px-4 py-2.5 text-xs font-black transition-all ${
-                    previewMode === "desktop" ? "bg-[#2451A6] text-white shadow-md" : "text-[#2451A6]/55 hover:text-[#2451A6]"
-                  }`}
-                >
-                  <Monitor size={16} /> Desktop
-                </button>
-                <button
-                  type="button"
-                  onClick={() => changePreviewMode("mobile")}
-                  aria-pressed={previewMode === "mobile"}
-                  className={`flex items-center gap-2 rounded-full px-4 py-2.5 text-xs font-black transition-all ${
-                    previewMode === "mobile" ? "bg-[#F97316] text-white shadow-md" : "text-[#2451A6]/55 hover:text-[#2451A6]"
-                  }`}
-                >
-                  <Smartphone size={16} /> Mobile
-                </button>
+            <div className="flex items-center justify-between flex-wrap gap-4">
+              <div className="flex items-center gap-2 text-[#f97316]">
+                <MonitorPlay size={20} />
+                <span className="text-xs font-black uppercase tracking-wider">Visual Gallery &amp; Flow</span>
               </div>
-            )}
 
-            <div className="mt-8 overflow-hidden rounded-[24px] border border-[#2451A6]/10 bg-[#2451A6]/5 p-2 md:p-3">
+              {/* Desktop / Mobile Switcher Tabs */}
+              {previewGroups && (
+                <div
+                  className={`flex rounded-full p-1 border transition-colors ${
+                    isDark ? "bg-slate-950/80 border-white/10" : "bg-slate-100 border-slate-200"
+                  }`}
+                  aria-label="Mode tampilan dokumentasi"
+                >
+                  <button
+                    type="button"
+                    onClick={() => changePreviewMode("desktop")}
+                    aria-pressed={previewMode === "desktop"}
+                    className={`flex items-center gap-1.5 rounded-full px-4 py-1.5 text-xs font-bold transition-all duration-300 ${
+                      previewMode === "desktop"
+                        ? "bg-[#2563eb] text-white shadow-md scale-105"
+                        : isDark
+                        ? "text-slate-400 hover:text-white"
+                        : "text-slate-600 hover:text-slate-900"
+                    }`}
+                  >
+                    <Monitor size={14} /> Desktop
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => changePreviewMode("mobile")}
+                    aria-pressed={previewMode === "mobile"}
+                    className={`flex items-center gap-1.5 rounded-full px-4 py-1.5 text-xs font-bold transition-all duration-300 ${
+                      previewMode === "mobile"
+                        ? "bg-[#f97316] text-white shadow-md scale-105"
+                        : isDark
+                        ? "text-slate-400 hover:text-white"
+                        : "text-slate-600 hover:text-slate-900"
+                    }`}
+                  >
+                    <Smartphone size={14} /> Mobile
+                  </button>
+                </div>
+              )}
+            </div>
+
+            <h3 className="mt-6 text-2xl sm:text-3xl font-black">
+              Pengenalan &amp; Arsitektur
+            </h3>
+            <p className={`mt-3 text-sm sm:text-base leading-relaxed ${isDark ? "text-slate-300" : "text-slate-600"}`}>
+              {description}
+            </p>
+
+            {/* Gallery Viewport with Smooth Slide & Crossfade */}
+            <div
+              className={`mt-6 overflow-hidden rounded-[24px] border p-2 sm:p-3 transition-colors ${
+                isDark ? "bg-slate-950/80 border-white/10" : "bg-slate-100/90 border-slate-200"
+              }`}
+            >
               {previewItems.length ? (
-                <>
-                  <div className="relative flex min-h-[430px] items-center justify-center overflow-hidden rounded-[18px] border border-[#2451A6]/10 bg-white shadow-lg">
-                    <AnimatePresence mode="wait">
-                      <motion.img
-                        key={previewItems[activePreview].src}
-                        src={previewItems[activePreview].src}
-                        alt={`${name} documentation preview ${activePreview + 1}`}
-                        initial={reduceMotion ? false : { opacity: 0, scale: 0.97, x: 24 }}
-                        animate={{ opacity: 1, scale: 1, x: 0 }}
-                        exit={reduceMotion ? undefined : { opacity: 0, scale: 1.02, x: -24 }}
-                        transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                        className={`mx-auto bg-[#EEF2F8] object-contain ${
-                          previewMode === "mobile"
-                            ? "block h-auto max-h-[680px] w-auto max-w-full object-contain"
-                            : "block max-h-[760px] w-full object-contain"
-                        }`}
-                      />
-                    </AnimatePresence>
-
-                    {previewItems.length > 1 && (
-                      <>
-                        <button
-                          type="button"
-                          onClick={showPrevious}
-                          aria-label="Preview sebelumnya"
-                          className="absolute left-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-white/40 bg-[#2451A6]/90 text-white shadow-xl backdrop-blur transition hover:-translate-x-1 hover:bg-[#2451A6]"
-                        >
-                          <ChevronLeft size={22} />
-                        </button>
-                        <button
-                          type="button"
-                          onClick={showNext}
-                          aria-label="Preview berikutnya"
-                          className="absolute right-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-white/40 bg-[#2451A6]/90 text-white shadow-xl backdrop-blur transition hover:translate-x-1 hover:bg-[#2451A6]"
-                        >
-                          <ChevronRight size={22} />
-                        </button>
-                      </>
-                    )}
-
-                    <span className="absolute bottom-3 right-3 rounded-full bg-[#171717]/80 px-4 py-2 text-xs font-black text-white shadow-lg backdrop-blur">
-                      {activePreview + 1} / {previewItems.length}
-                    </span>
-                    {previewItems[activePreview].label && (
-                      <span className="absolute bottom-3 left-3 rounded-full bg-white/95 px-4 py-2 text-xs font-black text-[#2451A6] shadow-lg">
-                        {previewItems[activePreview].label}
-                      </span>
-                    )}
-                  </div>
-
-                  {previewItems.length > 1 && (
-                    <div className="mt-4 flex items-center justify-center gap-2" aria-label="Navigasi dokumentasi">
-                      {previewItems.map((item, index) => (
-                        <button
-                          key={item.src}
-                          type="button"
-                          onClick={() => setActivePreview(index)}
-                          aria-label={`Buka preview ${index + 1}`}
-                          aria-current={activePreview === index ? "true" : undefined}
-                          className={`h-2.5 rounded-full transition-all duration-300 ${
-                            activePreview === index ? "w-10 bg-[#F97316] shadow-[0_4px_12px_rgba(249,115,22,.35)]" : "w-2.5 bg-[#2451A6]/20 hover:bg-[#2451A6]/50"
-                          }`}
+                <div className="relative flex min-h-[380px] sm:min-h-[460px] max-h-[580px] items-center justify-center overflow-hidden rounded-[18px] bg-black/10">
+                  <AnimatePresence initial={false} custom={direction} mode="wait">
+                    <motion.div
+                      key={previewItems[activePreview]?.src}
+                      custom={direction}
+                      variants={reduceMotion ? undefined : slideVariants}
+                      initial="enter"
+                      animate="center"
+                      exit="exit"
+                      className="w-full h-full flex items-center justify-center p-2"
+                    >
+                      <motion.div
+                        initial={reduceMotion ? false : { opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        className="image-reveal"
+                      >
+                        <img
+                          src={previewItems[activePreview]?.src}
+                          alt={`${name} preview ${activePreview + 1}`}
+                          className="max-h-[520px] w-auto max-w-full object-contain rounded-lg shadow-lg"
                         />
-                      ))}
-                    </div>
+                      </motion.div>
+                    </motion.div>
+                  </AnimatePresence>
+
+                  {/* Previous / Next buttons with Smooth Hover */}
+                  {previewItems.length > 1 && (
+                    <>
+                      <motion.button
+                        type="button"
+                        onClick={() => paginate(-1)}
+                        whileHover={{ scale: 1.12, x: -3 }}
+                        whileTap={{ scale: 0.9 }}
+                        aria-label="Preview sebelumnya"
+                        className="absolute left-3 top-1/2 -translate-y-1/2 grid h-10 w-10 place-items-center rounded-full bg-black/60 text-white shadow-xl backdrop-blur-md hover:bg-black/85 transition-colors cursor-interactive z-10"
+                      >
+                        <ChevronLeft size={20} />
+                      </motion.button>
+                      <motion.button
+                        type="button"
+                        onClick={() => paginate(1)}
+                        whileHover={{ scale: 1.12, x: 3 }}
+                        whileTap={{ scale: 0.9 }}
+                        aria-label="Preview berikutnya"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 grid h-10 w-10 place-items-center rounded-full bg-black/60 text-white shadow-xl backdrop-blur-md hover:bg-black/85 transition-colors cursor-interactive z-10"
+                      >
+                        <ChevronRight size={20} />
+                      </motion.button>
+                    </>
                   )}
-                </>
+
+                  {/* Counter badge */}
+                  <span className="absolute bottom-3 right-3 rounded-full bg-black/75 px-3 py-1.5 text-xs font-black text-white backdrop-blur shadow-md z-10">
+                    {activePreview + 1} / {previewItems.length}
+                  </span>
+
+                  {previewItems[activePreview]?.label && (
+                    <motion.span
+                      key={previewItems[activePreview].label}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="absolute bottom-3 left-3 rounded-full bg-blue-600/90 px-3.5 py-1.5 text-xs font-black text-white backdrop-blur shadow-md z-10"
+                    >
+                      {previewItems[activePreview].label}
+                    </motion.span>
+                  )}
+                </div>
               ) : (
-                <div className="grid aspect-video place-items-center rounded-[18px] border border-dashed border-[#2451A6]/20 bg-white text-center text-sm font-bold text-[#2451A6]/45">
-                  Website preview akan ditambahkan
+                <div className="grid aspect-video place-items-center rounded-[18px] text-xs font-bold text-slate-400">
+                  Preview tangkapan layar akan segera hadir
+                </div>
+              )}
+
+              {/* Indicator dots with smooth expansion */}
+              {previewItems.length > 1 && (
+                <div className="mt-4 flex items-center justify-center gap-1.5 pb-1">
+                  {previewItems.map((_, index) => (
+                    <button
+                      key={index}
+                      type="button"
+                      onClick={() => goToIndex(index)}
+                      aria-label={`Buka preview ${index + 1}`}
+                      className={`h-2 rounded-full transition-all duration-300 ${
+                        activePreview === index
+                          ? "w-8 bg-[#f97316] shadow-[0_0_12px_rgba(249,115,22,0.5)]"
+                          : isDark
+                          ? "w-2 bg-slate-700 hover:bg-slate-500"
+                          : "w-2 bg-slate-300 hover:bg-slate-400"
+                      }`}
+                    />
+                  ))}
                 </div>
               )}
             </div>
           </motion.article>
 
-          <div className="grid gap-6">
-            <motion.article
-              initial={reduceMotion ? false : { opacity: 0, x: 50 }}
-              whileInView={reduceMotion ? undefined : { opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 0.75, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="rounded-[32px] bg-[#2451A6] p-7 text-white md:p-9"
+          {/* Right: Learnings & Process Panels */}
+          <div className="flex flex-col gap-6">
+            {/* Learnings Card */}
+            <TiltCard
+              maxTilt={8}
+              className={`rounded-[32px] p-7 sm:p-8 text-white shadow-xl ${
+                isDark
+                  ? "bg-gradient-to-br from-blue-900/80 to-indigo-950 border border-blue-500/30"
+                  : "bg-gradient-to-br from-blue-600 to-indigo-700"
+              }`}
             >
-              <div className="flex items-center gap-3 text-[#F97316]">
-                <Lightbulb size={22} />
-                <p className="text-xs font-black uppercase tracking-[0.24em]">Refleksi</p>
+              <div className="flex items-center gap-2 text-amber-300">
+                <Lightbulb size={20} />
+                <span className="text-xs font-black uppercase tracking-widest">Key Learnings</span>
               </div>
-              <h3 className="mt-5 text-2xl font-black md:text-3xl">Apa yang dipelajari</h3>
-              <ul className="mt-6 space-y-4">
-                {learnings.map((item) => (
-                  <li key={item} className="flex gap-3 text-sm leading-6 text-white/75 md:text-base">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#F97316]" />
-                    {item}
+              <h3 className="mt-3 text-2xl font-black">
+                Apa yang dipelajari
+              </h3>
+              <ul className="mt-5 space-y-3.5">
+                {learnings.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm leading-relaxed text-blue-50">
+                    <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#f97316]" />
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
-            </motion.article>
+            </TiltCard>
 
-            <article className="rounded-[32px] border border-[#2451A6]/10 bg-white p-7 md:p-9">
-              <div className="flex items-center gap-3 text-[#2451A6]">
-                <Workflow size={22} />
-                <p className="text-xs font-black uppercase tracking-[0.24em]">Development</p>
+            {/* Workflow Card */}
+            <TiltCard
+              maxTilt={8}
+              className={`rounded-[32px] p-7 sm:p-8 border backdrop-blur-xl shadow-lg ${
+                isDark ? "bg-slate-900/60 border-white/10" : "bg-white/85 border-slate-200"
+              }`}
+            >
+              <div className="flex items-center gap-2 text-[#2563eb]">
+                <Workflow size={20} />
+                <span className="text-xs font-black uppercase tracking-widest">Execution Process</span>
               </div>
-              <h3 className="mt-5 text-2xl font-black text-[#2451A6] md:text-3xl">Proses Project</h3>
-              <div className="mt-6 grid gap-3">
-                {process.map((item, index) => (
-                  <div key={item} className="flex items-center gap-4 rounded-2xl bg-[#F2EFE6] px-4 py-4">
-                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#F97316] text-xs font-black text-white">0{index + 1}</span>
-                    <span className="text-sm font-black text-[#2451A6] md:text-base">{item}</span>
+              <h3 className="mt-3 text-2xl font-black">
+                Tahapan Pengembangan
+              </h3>
+              <div className="mt-5 flex flex-col gap-2.5">
+                {process.map((step, index) => (
+                  <div
+                    key={index}
+                    className={`flex items-center gap-3.5 rounded-2xl px-4 py-3 border transition-colors ${
+                      isDark
+                        ? "bg-slate-950/60 border-white/5 text-slate-200"
+                        : "bg-slate-50 border-slate-100 text-slate-800"
+                    }`}
+                  >
+                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#f97316] text-[11px] font-black text-white">
+                      0{index + 1}
+                    </span>
+                    <span className="text-xs sm:text-sm font-bold">{step}</span>
                   </div>
                 ))}
               </div>
-            </article>
+            </TiltCard>
           </div>
         </div>
 
-        <div className="mt-7 flex flex-wrap gap-3">
+        {/* Action Buttons */}
+        <div className="mt-8 flex flex-wrap items-center gap-4">
           {liveUrl && (
-            <a href={liveUrl} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-3 rounded-full bg-[#F97316] px-7 py-4 text-sm font-black text-white shadow-xl transition hover:-translate-y-1">
-              Live Preview <Globe2 size={18} /><ArrowUpRight size={16} className="transition group-hover:translate-x-1 group-hover:-translate-y-1" />
-            </a>
+            <motion.a
+              href={liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.04, y: -2 }}
+              whileTap={{ scale: 0.96 }}
+              className="genz-btn inline-flex items-center gap-2.5 rounded-full px-8 py-3.5 text-xs font-black uppercase tracking-wider text-white bg-gradient-to-r from-orange-500 to-amber-500 shadow-[0_12px_24px_rgba(249,115,22,0.3)] cursor-interactive"
+            >
+              <Globe2 size={16} />
+              <span>Buka Live Demo</span>
+              <ArrowUpRight size={16} />
+            </motion.a>
           )}
-          <a href={repositoryUrl} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-3 rounded-full border border-[#2451A6]/20 bg-white px-7 py-4 text-sm font-black text-[#2451A6] shadow-sm transition hover:-translate-y-1 hover:border-[#2451A6]">
-            <GitBranch size={18} /> Repository GitHub <ArrowUpRight size={16} />
-          </a>
+
+          {repositoryUrl && (
+            <motion.a
+              href={repositoryUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.04, y: -2 }}
+              whileTap={{ scale: 0.96 }}
+              className={`inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 text-xs font-black uppercase tracking-wider border transition-all cursor-interactive ${
+                isDark
+                  ? "bg-slate-900 border-white/15 text-slate-200 hover:bg-slate-800"
+                  : "bg-white border-slate-200 text-slate-800 hover:bg-slate-100 shadow-sm"
+              }`}
+            >
+              <GitBranch size={16} />
+              <span>Lihat Source Code GitHub</span>
+              <ArrowUpRight size={16} />
+            </motion.a>
+          )}
         </div>
       </div>
     </section>

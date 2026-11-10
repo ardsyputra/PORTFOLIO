@@ -1,553 +1,158 @@
-import texture from "../assets/images/texture.avif";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { Code2, Palette, Headphones, Wrench } from "lucide-react";
+import { useTheme } from "../context/ThemeContext";
+import Marquee from "../components/Marquee";
+import Tag from "../components/ui/Tag";
 
-import figma from "../assets/tools/figma.png";
-import vscode from "../assets/tools/vscode.png";
-import github from "../assets/tools/github.png";
-import react from "../assets/tools/react.png";
-import laravel from "../assets/tools/laravel.png";
-import jupyter from "../assets/tools/jupyter.png";
-import laragon from "../assets/tools/laragon.png";
-import { Code2, Palette, Headphones, Boxes } from "lucide-react";
+const categories = [
+  {
+    number: "01",
+    title: "Frontend",
+    icon: Code2,
+    color: "#2563eb",
+    techs: ["React", "TypeScript", "JavaScript", "Tailwind CSS", "Next.js", "HTML5", "CSS3"],
+  },
+  {
+    number: "02",
+    title: "Backend",
+    icon: Wrench,
+    color: "#f97316",
+    techs: ["Node.js", "Go", "Gin", "Laravel", "PHP", "REST API", "PostgreSQL", "MySQL", "CouchDB"],
+  },
+  {
+    number: "03",
+    title: "Design & Tools",
+    icon: Palette,
+    color: "#8b5cf6",
+    techs: ["Figma", "VS Code", "GitHub", "Git", "Docker", "Laragon", "Jupyter"],
+  },
+  {
+    number: "04",
+    title: "IT Support",
+    icon: Headphones,
+    color: "#10b981",
+    techs: ["Hardware", "Operating Systems", "Network", "Technical Documentation", "User Assistance", "System Maintenance"],
+  },
+];
 
+const marqueeTechs = [
+  "React", "TypeScript", "Next.js", "Node.js", "Go", "Gin", "Laravel",
+  "PostgreSQL", "MySQL", "CouchDB", "Figma", "GitHub", "Docker", "Git",
+  "REST API", "Tailwind CSS", "Laragon", "Jupyter",
+];
 
 export default function Skills() {
+  const { theme } = useTheme();
+  const reduceMotion = useReducedMotion();
+  const isDark = theme === "dark";
 
-
-  const skills = [
-
-    {
-      number: "01",
-      title: "Design",
-      description: "Creative Interface",
-      icon: Palette,
-      items: [
-        "UI/UX Design",
-        "User Research",
-        "Wireframe",
-        "Prototype",
-        "Design System",
-        "User Flow",
-        "Responsive Design",
-      ],
-    },
-
-
-    {
-      number: "02",
-      title: "Full Stack Development",
-      description: "Building Digital Product",
-      icon: Code2,
-      items: [
-        "React",
-        "TypeScript",
-        "JavaScript",
-        "Node.js",
-        "Laravel",
-        "Gin",
-        "PostgreSQL",
-        "MySQL",
-        "PHP",
-        "Python",
-        "REST API",
-        "Bootstrap",
-        "Git",
-      ],
-    },
-
-
-    {
-      number: "03",
-      title: "IT Support",
-      description: "Technical Support & Troubleshooting",
-      icon: Headphones,
-      items: [
-        "Hardware & Software",
-        "Operating System",
-        "Network Troubleshooting",
-        "Technical Documentation",
-        "User Assistance",
-        "System Maintenance",
-      ],
-    },
-
-  ];
-
-
-
-
-  const tools = [
-
-    {
-      name:"Figma",
-      image:figma,
-    },
-
-    {
-      name:"VS Code",
-      image:vscode,
-    },
-
-    {
-      name:"GitHub",
-      image:github,
-    },
-
-    {
-      name:"React",
-      image:react,
-    },
-
-    {
-      name:"Laravel",
-      image:laravel,
-    },
-
-    {
-      name:"Jupyter",
-      image:jupyter,
-    },
-
-    {
-      name:"Laragon",
-      image:laragon,
-    },
-
-  ];
-
-
-
-
+  const { scrollYProgress } = useScroll();
+  const paraSlow = useTransform(scrollYProgress, [0, 1], [0, -20]);
+  const paraMid = useTransform(scrollYProgress, [0, 1], [0, 30]);
 
   return (
-
-    <section
-      id="skill"
-      className="
-      relative
-      min-h-screen
-      bg-[#1E3A8A]
-      py-28
-      overflow-hidden
-      scroll-mt-24
-      "
-    >
-
-
-      {/* Texture */}
-
-      <div
-        className="
-        absolute
-        inset-0
-        opacity-[0.15]
-        "
+    <section id="skills" className={`relative min-h-screen overflow-hidden ${
+      isDark ? "bg-[#090d16] text-[#f8fafc]" : "bg-[#f8fafc] text-[#0f172a]"
+    }`}>
+      {/* Decorative parallax */}
+      <motion.div
+        className="absolute -top-16 -left-16 w-64 h-64 rounded-full border border-[var(--border-inverse)]/30 backdrop-blur pointer-events-none"
         style={{
-          backgroundImage:`url(${texture})`,
-          backgroundSize:"300px",
-          backgroundRepeat:"repeat",
+          background: isDark ? "rgba(37, 99, 235, 0.05)" : "rgba(30, 58, 138, 0.05)",
+          transform: `translate3d(0, ${paraSlow}px, 0)`,
         }}
+        animate={{ scale: 1 }}
+        transition={{ repeat: Infinity, ease: "easeInOut", duration: 7 }}
+      />
+      <motion.div
+        className="absolute bottom-32 right-32 w-48 h-48 rounded-full border border-[var(--border-inverse)]/30 backdrop-blur pointer-events-none"
+        style={{
+          background: isDark ? "rgba(139, 92, 246, 0.05)" : "rgba(139, 92, 246, 0.05)",
+          transform: `translate3d(0, ${paraMid}px, 0)`,
+        }}
+        animate={{ scale: 1 }}
+        transition={{ repeat: Infinity, ease: "easeInOut", duration: 8 }}
       />
 
-
-
-
-
-      {/* Decoration */}
-
-      <div
-        className="
-        absolute
-        -top-20
-        -right-20
-        w-72
-        h-72
-        rounded-full
-        bg-[#F7F4ED]/10
-        "
-      />
-
-
-
-      <div
-        className="
-        absolute
-        bottom-20
-        left-20
-        w-20
-        h-20
-        border-4
-        border-[#F7F4ED]/20
-        rounded-full
-        "
-      />
-
-
-
-
-
-
-
-      <div
-        className="
-        relative
-        z-10
-        max-w-6xl
-        mx-auto
-        px-6
-        "
-      >
-
-
-
-
-
-        {/* HEADER */}
-
-
-        <div
-          className="
-          text-center
-          mb-20
-          "
+      <div className="section-inner relative z-10">
+        <motion.div
+          initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="mb-16 text-center"
         >
+          <span className="text-kicker block mb-3">Keahlian</span>
+          <h2 className="text-section-title font-black">Skills &amp;<br /><span className="text-[#1E3A8A]">Teknologi</span></h2>
+        </motion.div>
 
-
-          <span
-            className="
-            inline-block
-            bg-[#F7F4ED]
-            text-[#1E3A8A]
-            px-6
-            py-2
-            rounded-full
-            font-soulrise
-            text-sm
-            shadow-lg
-            "
-          >
-            MY STACK
-          </span>
-
-
-
-          <h2
-          style={{
-              fontFamily: "soulrise"
-            }}
-            className="
-            text-5xl
-            md:text-6xl
-            font-bold
-            text-[#F7F4ED]
-            mt-6
-            "
-          >
-            Skills & Tools
-          </h2>
-
-
-
-          <p
-            style={{
-              fontFamily: "soulrise"
-            }}
-            className="
-            text-[#F7F4ED]/70
-            mt-5
-            text-lg
-            "
-          >
-            Full Stack Development, IT Support, and UI/UX Design
-          </p>
-
-
-        </div>
-
-
-
-
-
-
-
-
-
-        {/* SKILL CARD */}
-
-
-        <div
-          className="
-          grid
-          md:grid-cols-3
-          gap-10
-          "
+        {/* Animated technology marquee */}
+        <motion.div
+          initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="relative mb-16 overflow-hidden rounded-[var(--radius-xl)] border border-[var(--border)] bg-[var(--surface)] px-6 py-4 shadow-sm"
         >
-
-
-
-        {
-          skills.map((skill)=>(
-
-
-            <div
-              key={skill.title}
-              className="
-              relative
-              bg-[#F7F4ED]
-              group
-              rounded-[45px]
-              p-8
-              shadow-2xl
-              overflow-hidden
-              hover:-translate-y-4
-              transition
-              duration-500
-              "
-            >
-
-
-
-              {/* BIG NUMBER */}
-
-              <h1
-                className="
-                absolute
-                -top-8
-                -right-5
-                text-[130px]
-                font-black
-                text-[#1E3A8A]/10
-                "
-              >
-                {skill.number}
-              </h1>
-
-
-
-
-
-              <div
-                className="
-                relative
-                z-10
-                "
-              >
-                <div className="mb-7 grid h-14 w-14 place-items-center rounded-2xl bg-[#F97316] text-white shadow-lg shadow-[#F97316]/20 transition duration-500 group-hover:rotate-6">
-                  {(() => {
-                    const Icon = skill.icon || Boxes;
-                    return <Icon size={26} strokeWidth={2.5} />;
-                  })()}
-                </div>
-
-                <h3
-                  className="
-                  text-4xl
-                  font-bold
-                  text-[#1E3A8A]
-                  "
-                >
-                  {skill.title}
-                </h3>
-
-
-
-
-                <p
-                  className="
-                  text-[#1E3A8A]/60
-                  mt-2
-                  mb-8
-                  "
-                >
-                  {skill.description}
-                </p>
-
-
-
-
-
-                <div
-                  className="
-                  space-y-3
-                  "
-                >
-
-
-                {
-                  skill.items.map(item=>(
-
-                    <div
-                      key={item}
-                      className="
-                      bg-[#1E3A8A]
-                      text-[#F7F4ED]
-                      px-5
-                      py-3
-                      rounded-full
-                      shadow-md
-                      font-semibold
-                      "
-                    >
-
-                      {item}
-
-                    </div>
-
-
-                  ))
-                }
-
-
-                </div>
-
-
-
-              </div>
-
-
-
+          <div className="flex items-center gap-3">
+            <span className="skills-explore-label">Explore</span>
+            <div className="skills-marquee-viewport h-[44px] min-w-0 flex-1 overflow-hidden">
+              <Marquee speed={22}>
+                {marqueeTechs.map((tech, i) => (
+                  <span key={i} className="skills-marquee-item inline-flex items-center gap-2 whitespace-nowrap px-3 py-2 text-sm font-bold border rounded-full">
+                    {tech}
+                  </span>
+                ))}
+              </Marquee>
             </div>
+          </div>
+        </motion.div>
 
+        {/* Category cards with staggered tags + connecting lines */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          {categories.map((cat, cIdx) => (
+            <motion.div
+              key={cat.title}
+              initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7, delay: 0.15 + cIdx * 0.12 }}
+              className="relative"
+            >
+              {/* Decorative number watermark */}
+              <span className="absolute -top-6 -right-4 text-[60px] font-black select-none pointer-events-none opacity-[0.03] leading-none">{cat.number}</span>
 
-          ))
-        }
-
-
-        </div>
-
-
-
-
-
-
-
-
-
-        {/* TOOLS */}
-
-
-
-        <div
-          className="
-          mt-20
-          bg-[#F7F4ED]
-          rounded-[50px]
-          p-10
-          shadow-2xl
-          "
-        >
-
-
-
-          <h3
-            className="
-            text-4xl
-            font-soulrise
-            text-[#1E3A8A]
-            text-center
-            mb-12
-            "
-          >
-            Tools 
-          </h3>
-
-
-
-
-
-          <div
-            className="
-            grid
-            grid-cols-2
-            md:grid-cols-4
-            gap-10
-            "
-          >
-
-
-
-          {
-            tools.map(tool=>(
-
-
-              <div
-                key={tool.name}
-                className="
-                flex
-                flex-col
-                items-center
-                group
-                "
-              >
-
-
-
-                <div
-                  className="
-                  w-28
-                  h-28
-                  bg-white
-                  rounded-[30px]
-                  shadow-xl
-                  flex
-                  items-center
-                  justify-center
-                  p-6
-                  group-hover:-translate-y-3
-                  transition
-                  duration-300
-                  "
-                >
-
-                  <img
-                    src={tool.image}
-                    alt={tool.name}
-                    className="
-                    w-full
-                    h-full
-                    object-contain
-                    "
-                  />
-
+              <div className="relative rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--surface-alt)] p-7 sm:p-9 shadow-sm">
+                <div className="flex items-center gap-2.5 mb-4">
+                  <div className="w-9 h-9 rounded-[10px] flex items-center justify-center" style={{ backgroundColor: `${cat.color}15`, color: cat.color }}>
+                    <cat.icon size={18} strokeWidth={2.2} />
+                  </div>
+                  <div>
+                    <h3 className="font-black text-lg tracking-tight">{cat.title}</h3>
+                    <p className="text-[11px] font-black uppercase tracking-[0.2em] text-[var(--ink-muted)] mt-0.5">Technology stack</p>
+                  </div>
                 </div>
 
+                <div className="space-y-2">
+                  {cat.techs.map((tech, tIdx) => (
+                    <Tag
+                      key={tech}
+                      label={tech}
+                      initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.25 }}
+                      transition={{ duration: 0.45, delay: 0.45 + tIdx * 0.04, ease: [0.16, 1, 0.3, 1] }}
+                    />
+                  ))}
+                </div>
 
-
-                <p
-                  className="
-                  mt-4
-                  text-[#1E3A8A]
-                  font-bold
-                  "
-                >
-                  {tool.name}
-                </p>
-
-
-
+                {/* Connecting line under tag list */}
+                <div className="mt-4 h-[1px] bg-[var(--border-soft)] w-full" />
               </div>
-
-
-            ))
-          }
-
-
-
-          </div>
-
-
-
-
+            </motion.div>
+          ))}
         </div>
-
-
-
-
-
-
       </div>
-
-
     </section>
-
   );
 }
